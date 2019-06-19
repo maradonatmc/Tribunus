@@ -50,7 +50,7 @@
                                 VerticalOptions="CenterAndExpand" >
             </ActivityIndicator>
 
-            <Button x:Name="loginButton"
+            <Button x:Name="loginButton"                    
                     BackgroundColor="Green"
                     Text="Entrar"
                     TextColor="White"
