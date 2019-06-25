@@ -6,7 +6,6 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -32,6 +31,13 @@ namespace SalesWebMVC.Pages {
         private async void LoginButton_Clicked(object sender, EventArgs e) {
             if (string.IsNullOrEmpty(emailEntry.Text)) {
                 await DisplayAlert("Erro", "Digite seu e-mail", "Aceitar");
+
+                emailEntry.Focus();
+                return;
+            }
+
+            if (!Utilities.IsValidEmail(emailEntry.Text)) {
+                await DisplayAlert("Erro", "Digite um e-mail válido", "Aceitar");
 
                 emailEntry.Focus();
                 return;
@@ -77,14 +83,14 @@ namespace SalesWebMVC.Pages {
                 return;
             }
 
+            /*Manter enquanto não implementado API*/
             //var user = JsonConvert.DeserializeObject<User>(resp);
             //waitActivityIndicator.IsRunning = false;
             //await DisplayAlert("Bem Vindo", user.FirstName, "Aceitar");
             /**/
 
-            /*Manter enquanto não implementado API*/
             waitActivityIndicator.IsRunning = false;
-            await DisplayAlert("Bem Vindo", "Renato Ramos", "Aceitar");
-        }
+            await Navigation.PushAsync(new Index());
+        } 
     }
 }
