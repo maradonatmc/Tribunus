@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29001.49
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesWebMVC.Android", "SalesWebMVC\SalesWebMVC.Android\SalesWebMVC.Android.csproj", "{3B1B3358-9E15-472A-9FB0-1D658CB45C58}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tribunus.Android", "Tribunus\Tribunus.Android\Tribunus.Android.csproj", "{3B1B3358-9E15-472A-9FB0-1D658CB45C58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesWebMVC.iOS", "SalesWebMVC\SalesWebMVC.iOS\SalesWebMVC.iOS.csproj", "{FDB92F0C-655D-49F1-B167-9DFF5B6097D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tribunus.iOS", "Tribunus\Tribunus.iOS\Tribunus.iOS.csproj", "{FDB92F0C-655D-49F1-B167-9DFF5B6097D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesWebMVC", "SalesWebMVC\SalesWebMVC\SalesWebMVC.csproj", "{FAF67CDA-F8F5-4959-AAC5-4C030146CAD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tribunus", "Tribunus\Tribunus\Tribunus.csproj", "{FAF67CDA-F8F5-4959-AAC5-4C030146CAD5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

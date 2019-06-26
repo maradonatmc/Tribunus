@@ -1,9 +1,10 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using SalesWebMVC.Pages;
+using Tribunus.Pages;
+using Tribunus.Classes;
 
-namespace SalesWebMVC {
+namespace Tribunus {
     public partial class App: Application {
         public App() {
             InitializeComponent();

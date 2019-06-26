@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SalesWebMVC.Classes {
+namespace Tribunus.Classes {
     public class LoginRequest {
         private string  _User;
         public string User {

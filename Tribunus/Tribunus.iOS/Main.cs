@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace SalesWebMVC.iOS
+namespace Tribunus.iOS
 {
     public class Application
     {

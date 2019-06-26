@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SalesWebMVC.Classes {
+namespace Tribunus.Classes {
     public class User {
         private int _UserId;
         public int UserId {
@@ -33,5 +33,21 @@ namespace SalesWebMVC.Classes {
             get { return _Photo; }
             set { _Photo = value; }
         }
+
+        private string _Password;
+        public string Password {
+            get { return _Password; }
+            set { _Password = value; }
+        }
+
+        public string PhotoFullPath {
+            get {
+                if (string.IsNullOrEmpty(this.Photo))
+                    return string.Empty;
+
+                return string.Format("http://tribunus.somee.com{0}", this.Photo.Substring(1));
+            }
+        }
+
     }
 }

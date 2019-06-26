@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace SalesWebMVC.Classes {
+namespace Tribunus.Classes {
     public class Utilities {
         public static bool Rengex { get; private set; }
 

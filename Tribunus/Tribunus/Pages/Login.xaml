@@ -4,11 +4,11 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="SalesWebMVC.Pages.Login"
+             x:Class="Tribunus.Pages.Login"
              Title="Login">
     <ScrollView>
         <StackLayout Spacing="20">
-            <Label Text="Aplicativo"
+            <Label Text="Tribunus"
                     FontSize="30"
                     VerticalTextAlignment="Center"
                     HorizontalOptions="Center"

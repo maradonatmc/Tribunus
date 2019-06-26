@@ -9,9 +9,9 @@
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SalesWebMVC.iOS</RootNamespace>
+    <RootNamespace>Tribunus.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>SalesWebMVC.iOS</AssemblyName>
+    <AssemblyName>Tribunus.iOS</AssemblyName>
     <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
   </PropertyGroup>
@@ -129,9 +129,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\SalesWebMVC\SalesWebMVC.csproj">
-      <Project>{C278576E-5690-4A0C-8AF3-35AAB35C30C6}</Project>
-      <Name>SalesWebMVC</Name>
+    <ProjectReference Include="..\Tribunus\Tribunus.csproj">
+      <Project>{FAF67CDA-F8F5-4959-AAC5-4C030146CAD5}</Project>
+      <Name>Tribunus</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

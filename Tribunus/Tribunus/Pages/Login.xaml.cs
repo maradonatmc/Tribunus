@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using SalesWebMVC.Classes;
+using Tribunus.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace SalesWebMVC.Pages {
+namespace Tribunus.Pages {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Login: ContentPage {
         public Login() {
@@ -85,12 +85,16 @@ namespace SalesWebMVC.Pages {
 
             /*Manter enquanto não implementado API*/
             //var user = JsonConvert.DeserializeObject<User>(resp);
-            //waitActivityIndicator.IsRunning = false;
-            //await DisplayAlert("Bem Vindo", user.FirstName, "Aceitar");
-            /**/
+            User user = new User();
 
+            user.UserId = 1;
+            user.UserName = "renatoramos89@gmail.com";
+            user.FirstName = "Renato";
+            user.LastName = "Ramos";
+            user.Photo = "";
+            user.Password = passwordEntry.Text;
             waitActivityIndicator.IsRunning = false;
-            await Navigation.PushAsync(new Index());
+            await Navigation.PushAsync(new Index(user));
         } 
     }
 }
