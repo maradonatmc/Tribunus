@@ -1,8 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Tribunus.Classes;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +14,7 @@ namespace Tribunus.Pages {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Login: ContentPage {
 
-        private bool isFingerprint = false;
+        private bool UseFingerprintValidation = false;
         public Login() {
             InitializeComponent();
 
@@ -34,32 +32,38 @@ namespace Tribunus.Pages {
         }
 
         private async void LoginButton_Clicked(object sender, EventArgs e) {
-            await AuthenticationAsync("Biometria");
+            UseFingerprintValidation = false;
+            var haveFingerprint = await CrossFingerprint.Current.IsAvailableAsync(true);
 
-            if (!isFingerprint) {
+            if (haveFingerprint) {
+                await AuthenticationAsync("Biometria");
+                this.LogarAsync();
+            }
+
+            if (!UseFingerprintValidation) {
                 if (string.IsNullOrEmpty(emailEntry.Text)) {
-                    await DisplayAlert("Erro", "Digite seu e-mail", "Aceitar");
+                    await DisplayAlert("Erro", "Digite seu e-mail", "Ok");
 
                     emailEntry.Focus();
                     return;
                 }
 
                 if (!Utilities.IsValidEmail(emailEntry.Text)) {
-                    await DisplayAlert("Erro", "Digite um e-mail válido", "Aceitar");
+                    await DisplayAlert("Erro", "Digite um e-mail válido", "Ok");
 
                     emailEntry.Focus();
                     return;
                 }
 
                 if (string.IsNullOrEmpty(passwordEntry.Text)) {
-                    await DisplayAlert("Erro", "Digite sua senha", "Aceitar");
+                    await DisplayAlert("Erro", "Digite sua senha", "Ok");
 
                     passwordEntry.Focus();
                     return;
                 }
-            }
 
-            this.LogarAsync();
+                this.LogarAsync();
+            }            
         }
 
         private async void LogarAsync() {
@@ -87,7 +91,7 @@ namespace Tribunus.Pages {
                 //resp = await result.Content.ReadAsStringAsync();
             }
             catch (Exception ex) {
-                await DisplayAlert("Erro", ex.Message, "Aceitar");
+                await DisplayAlert("Erro", ex.Message, "Ok");
                 waitActivityIndicator.IsRunning = false;
                 return;
             }
@@ -118,20 +122,15 @@ namespace Tribunus.Pages {
             await SetResultAsync(result);
         }
 
-        //<Button Text="Authenticate" Clicked="OnAuthenticate"></Button>
-        //private async void OnAuthenticate(object sender, EventArgs e) {
-        //await AuthenticationAsync("Biometria");
-        //}
-
         private async Task SetResultAsync(FingerprintAuthenticationResult result) {
             if (result.Authenticated) {
-                await DisplayAlert("Tribunus", "Autorizado", "Ok");
-                isFingerprint = true;
+                await DisplayAlert("Autenticação", "Tribunus detectado", "Ok");
             }
             else {
-                await DisplayAlert("Tribunus", "Leitura digital inválida", "Ok");
-                isFingerprint = false;
+                await DisplayAlert("Falha Autenticação", "Tribunus não detectado", "Ok");
             }
+
+            UseFingerprintValidation = true;
         }
     }
 }

@@ -51,11 +51,9 @@
             </Label>
 
             <StackLayout Orientation="Horizontal">
-                <Label Text="10 Segundos Biometria"
-                        HorizontalOptions="Start" 
-                        VerticalOptions="Center">
-                </Label>
                 <Switch x:Name="swAutoCancel" 
+                        IsEnabled="True" 
+                        IsVisible="False"
                         HorizontalOptions="End"
                         VerticalOptions="Center">
                 </Switch>
