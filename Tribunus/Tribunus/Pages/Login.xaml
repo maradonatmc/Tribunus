@@ -45,6 +45,22 @@
                 </Switch>
             </StackLayout>
 
+            <Label x:Name="lblAuthenticationType" 
+               VerticalOptions="Center"
+               HorizontalOptions="Center">
+            </Label>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="10 Segundos Biometria"
+                        HorizontalOptions="Start" 
+                        VerticalOptions="Center">
+                </Label>
+                <Switch x:Name="swAutoCancel" 
+                        HorizontalOptions="End"
+                        VerticalOptions="Center">
+                </Switch>
+            </StackLayout>
+
             <ActivityIndicator x:Name="waitActivityIndicator"
                                 HorizontalOptions="CenterAndExpand"
                                 VerticalOptions="CenterAndExpand" >
