@@ -1,27 +1,57 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Tribunus.Pages.Index" 
              Title="Tribunus MC">
-    <ScrollView>
-        <StackLayout>
-            <Image x:Name="photoImage" 
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center" ></Image>
-            <Label Text="Bem Vindo" 
-                   FontSize="20"
-                   FontAttributes="Bold"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center" />
+    <MasterDetailPage.Master>
+        <ContentPage Title="Menu" Padding="0">
+            <ContentPage.Content>
+                <StackLayout>
+                    <Grid BackgroundColor="#03A9F4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="10"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="80"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="10"/>
+                        </Grid.RowDefinitions>
+                        <Label
+                          Grid.Column="1"
+                          Grid.Row="2"
+                          Text="Tribunus"
+                          TextColor="White" FontSize="Large"/>
+                    </Grid>
 
-            <Label Text="Usuário" 
-                   FontSize="30"
-                   FontAttributes="Bold"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center" />
-        </StackLayout>
-    </ScrollView>
-</ContentPage>
+                    <TableView Intent="Menu">
+                        <TableSection>
+                            <ViewCell Tapped="GoPage1">
+                                <StackLayout Padding="15,10">
+                                    <Label Text="Page 1" VerticalTextAlignment="Center"/>
+                                </StackLayout>
+                            </ViewCell>
+
+                            <ViewCell Tapped="GoPage2">
+                                <StackLayout Padding="15,10">
+                                    <Label Text="Page 2" VerticalTextAlignment="Center"/>
+                                </StackLayout>
+                            </ViewCell>
+
+                            <ViewCell Tapped="GoPage3">
+                                <StackLayout Padding="15,10">
+                                    <Label Text="Page 3" VerticalTextAlignment="Center"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                    </TableView>
+                </StackLayout>
+            </ContentPage.Content>
+        </ContentPage>
+    </MasterDetailPage.Master>
+</MasterDetailPage>
