@@ -108,7 +108,7 @@ namespace Tribunus.Pages {
             //var user = JsonConvert.DeserializeObject<User>(resp);
             waitActivityIndicator.IsRunning = false;
 
-            await Navigation.PushAsync(new Main());
+            await Navigation.PushAsync(new Pages.Menu());
         }
     }
 }
