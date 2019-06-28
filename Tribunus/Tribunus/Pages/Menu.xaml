@@ -30,21 +30,21 @@
 
                     <TableView Intent="Menu">
                         <TableSection>
-                            <ViewCell Tapped="GoPage1">
+                            <ViewCell Tapped="GoCadastro">
                                 <StackLayout Padding="15,10">
-                                    <Label Text="Page 1" VerticalTextAlignment="Center"/>
+                                    <Label Text="Cadastro" VerticalTextAlignment="Center"/>
                                 </StackLayout>
                             </ViewCell>
 
-                            <ViewCell Tapped="GoPage2">
+                            <ViewCell Tapped="GoReunioes">
                                 <StackLayout Padding="15,10">
-                                    <Label Text="Page 2" VerticalTextAlignment="Center"/>
+                                    <Label Text="Reuniões" VerticalTextAlignment="Center"/>
                                 </StackLayout>
                             </ViewCell>
 
-                            <ViewCell Tapped="GoPage3">
+                            <ViewCell Tapped="GoMural">
                                 <StackLayout Padding="15,10">
-                                    <Label Text="Page 3" VerticalTextAlignment="Center"/>
+                                    <Label Text="Mural" VerticalTextAlignment="Center"/>
                                 </StackLayout>
                             </ViewCell>
                         </TableSection>

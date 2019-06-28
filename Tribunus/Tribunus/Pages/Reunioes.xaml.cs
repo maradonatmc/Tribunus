@@ -9,8 +9,8 @@ using Xamarin.Forms.Xaml;
 
 namespace Tribunus.Pages {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MenuDetail: ContentPage {
-        public MenuDetail() {
+    public partial class Reunioes: ContentPage {
+        public Reunioes() {
             InitializeComponent();
 
             switch (Device.RuntimePlatform) {

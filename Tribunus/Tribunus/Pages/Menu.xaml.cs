@@ -26,16 +26,16 @@ namespace Tribunus.Pages {
             Detail = new NavigationPage(new MenuDetail());
         }
 
-        private void GoPage1(object sender, System.EventArgs e) {
-            //Detail.Navigation.PushAsync(new Page1());
+        private void GoCadastro(object sender, System.EventArgs e) {
+            Detail.Navigation.PushAsync(new Cadastro());
             IsPresented = false;
         }
-        private void GoPage2(object sender, System.EventArgs e) {
-            //Detail.Navigation.PushAsync(new Page2());
+        private void GoReunioes(object sender, System.EventArgs e) {
+            Detail.Navigation.PushAsync(new Reunioes());
             IsPresented = false;
         }
-        private void GoPage3(object sender, System.EventArgs e) {
-            //Detail.Navigation.PushAsync(new Page3());
+        private void GoMural(object sender, System.EventArgs e) {
+            Detail.Navigation.PushAsync(new Mural());
             IsPresented = false;
         }
     }

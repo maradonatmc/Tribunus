@@ -13,6 +13,16 @@ namespace Tribunus {
     public partial class MainPage: ContentPage {
         public MainPage() {
             InitializeComponent();
+
+            switch (Device.RuntimePlatform) {
+                case Device.Android:
+                    Padding = new Thickness(10, 20, 10, 10);
+                    break;
+
+                default:
+                    Padding = new Thickness(10);
+                    break;
+            }
         }
     }
 }
