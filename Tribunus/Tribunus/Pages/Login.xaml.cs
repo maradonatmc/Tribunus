@@ -13,8 +13,7 @@ using Plugin.Fingerprint.Abstractions;
 namespace Tribunus.Pages {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Login: ContentPage {
-
-        private bool UseFingerprintValidation = false;
+        public bool fingerPrintValidate = false;
         public Login() {
             InitializeComponent();
 
@@ -32,15 +31,21 @@ namespace Tribunus.Pages {
         }
 
         private async void LoginButton_Clicked(object sender, EventArgs e) {
-            UseFingerprintValidation = false;
             var haveFingerprint = await CrossFingerprint.Current.IsAvailableAsync(true);
+           
+            if (useFingerprintSwitch.IsToggled) {
+                if (haveFingerprint) {
+                    await AuthenticationAsync("Toque no sensor");
 
-            if (haveFingerprint) {
-                await AuthenticationAsync("Biometria");
-                this.LogarAsync();
+                    if (fingerPrintValidate) {
+                        this.LogarAsync();
+                    }
+                }
+                else {
+                    await DisplayAlert("Erro", "Função de Autenticação por impressão digitão não disponível neste celular", "Ok");
+                }
             }
-
-            if (!UseFingerprintValidation) {
+            else {
                 if (string.IsNullOrEmpty(emailEntry.Text)) {
                     await DisplayAlert("Erro", "Digite seu e-mail", "Ok");
 
@@ -125,12 +130,12 @@ namespace Tribunus.Pages {
         private async Task SetResultAsync(FingerprintAuthenticationResult result) {
             if (result.Authenticated) {
                 await DisplayAlert("Autenticação", "Tribunus detectado", "Ok");
+                fingerPrintValidate = true;
             }
             else {
                 await DisplayAlert("Falha Autenticação", "Tribunus não detectado", "Ok");
+                fingerPrintValidate = false;
             }
-
-            UseFingerprintValidation = true;
         }
     }
 }
