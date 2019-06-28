@@ -13,7 +13,7 @@ using Plugin.Fingerprint.Abstractions;
 namespace Tribunus.Pages {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Login: ContentPage {
-        public bool fingerPrintValidate = false;
+        private FingerprintValidation fingerPrint = new FingerprintValidation();
         public Login() {
             InitializeComponent();
 
@@ -31,14 +31,17 @@ namespace Tribunus.Pages {
         }
 
         private async void LoginButton_Clicked(object sender, EventArgs e) {
-            var haveFingerprint = await CrossFingerprint.Current.IsAvailableAsync(true);
+            var haveFingerprint = await fingerPrint.HaveFingerprint();
            
             if (useFingerprintSwitch.IsToggled) {
                 if (haveFingerprint) {
-                    await AuthenticationAsync("Toque no sensor");
+                    await fingerPrint.AuthenticationAsync("Toque no sensor", swAutoCancel.IsToggled);
 
-                    if (fingerPrintValidate) {
+                    if (fingerPrint.fingerPrintValidate) {
                         this.LogarAsync();
+                    }
+                    else {
+                        await DisplayAlert("Falha de Autenticação", "Tribunus não detectado", "Ok");
                     }
                 }
                 else {
@@ -74,17 +77,17 @@ namespace Tribunus.Pages {
         private async void LogarAsync() {
             waitActivityIndicator.IsRunning = true;
 
-            var loginRequest = new LoginRequest { User = emailEntry.Text, Password = passwordEntry.Text };
+            //var loginRequest = new LoginRequest { User = emailEntry.Text, Password = passwordEntry.Text };
 
             /**/
-            var jsonRequest = JsonConvert.SerializeObject(loginRequest);
-            var httpContent = new StringContent(jsonRequest, Encoding.UTF8, "application/json");
-            var resp = string.Empty;
+            //var jsonRequest = JsonConvert.SerializeObject(loginRequest);
+            //var httpContent = new StringContent(jsonRequest, Encoding.UTF8, "application/json");
+            //var resp = string.Empty;
 
-            try {
-                var client = new HttpClient();
-                client.BaseAddress = new Uri("http://tribunus.somee.com");
-                var url = "/API/Users/Login";
+            //try {
+                //var client = new HttpClient();
+                //client.BaseAddress = new Uri("http://tribunus.somee.com");
+                //var url = "/API/Users/Login";
                 //var result = await client.PostAsync(url, httpContent);
 
                 //if (!result.IsSuccessStatusCode) {
@@ -94,48 +97,18 @@ namespace Tribunus.Pages {
                 //}
 
                 //resp = await result.Content.ReadAsStringAsync();
-            }
-            catch (Exception ex) {
-                await DisplayAlert("Erro", ex.Message, "Ok");
-                waitActivityIndicator.IsRunning = false;
-                return;
-            }
+            //}
+            //catch (Exception ex) {
+            //    await DisplayAlert("Erro", ex.Message, "Ok");
+            //    waitActivityIndicator.IsRunning = false;
+            //    return;
+            //}
 
             /*Manter enquanto não implementado API*/
             //var user = JsonConvert.DeserializeObject<User>(resp);
-            User user = new User();
-
-            user.UserId = 1;
-            user.UserName = "renatoramos89@gmail.com";
-            user.FirstName = "Renato";
-            user.LastName = "Ramos";
-            user.Photo = "";
-            user.Password = passwordEntry.Text;
             waitActivityIndicator.IsRunning = false;
-            await Navigation.PushAsync(new Index(user));
-        }
 
-        private CancellationTokenSource _cancel;
-        private async Task AuthenticationAsync(string reason, string cancel = null, string fallback = null, string tooFast = null) {
-            _cancel = swAutoCancel.IsToggled ? new CancellationTokenSource(TimeSpan.FromSeconds(10)) : new CancellationTokenSource();
-            var dialogConfig = new AuthenticationRequestConfiguration(reason) {
-                CancelTitle = cancel,
-                FallbackTitle = fallback,
-                UseDialog = true
-            };
-            var result = await Plugin.Fingerprint.CrossFingerprint.Current.AuthenticateAsync(dialogConfig, _cancel.Token);
-            await SetResultAsync(result);
-        }
-
-        private async Task SetResultAsync(FingerprintAuthenticationResult result) {
-            if (result.Authenticated) {
-                await DisplayAlert("Autenticação", "Tribunus detectado", "Ok");
-                fingerPrintValidate = true;
-            }
-            else {
-                await DisplayAlert("Falha Autenticação", "Tribunus não detectado", "Ok");
-                fingerPrintValidate = false;
-            }
+            await Navigation.PushAsync(new Main());
         }
     }
 }

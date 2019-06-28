@@ -84,7 +84,7 @@
             </Button>
 
             <Button x:Name="registerButton"
-                    BackgroundColor="Purple"
+                    BackgroundColor="DarkBlue"
                     Text="Cadastrar"
                     TextColor="White"
                     HorizontalOptions="FillAndExpand"
