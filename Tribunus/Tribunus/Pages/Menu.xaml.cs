@@ -40,5 +40,15 @@ namespace Tribunus.Pages {
             Detail.Navigation.PushAsync(new Mural());
             IsPresented = false;
         }
+
+        private void GoMembros(object sender, System.EventArgs e) {
+            Detail.Navigation.PushAsync(new Membros());
+            IsPresented = false;
+        }
+
+        private void GoFinanceiro(object sender, System.EventArgs e) {
+            Detail.Navigation.PushAsync(new Financeiro());
+            IsPresented = false;
+        }
     }
 }

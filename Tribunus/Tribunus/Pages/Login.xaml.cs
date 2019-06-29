@@ -27,7 +27,40 @@ namespace Tribunus.Pages {
                     break;
             }
 
+            if (!useFingerprintSwitch.IsToggled) {
+                lblAliasNotify.IsVisible = false;
+                aliasEntry.IsVisible = false;
+                lblEmailEPasswordNotify.IsVisible = true;
+                emailEntry.IsVisible = true;
+                passwordEntry.IsVisible = true;
+            }
+            else {
+                lblAliasNotify.IsVisible = true;
+                aliasEntry.IsVisible = true;
+                lblEmailEPasswordNotify.IsVisible = false;
+                emailEntry.IsVisible = false;
+                passwordEntry.IsVisible = false;
+            }
+
             loginButton.Clicked += LoginButton_Clicked;
+            useFingerprintSwitch.Toggled += HandleSwitchToggledByUser;
+        }
+
+        private void HandleSwitchToggledByUser(object sender, ToggledEventArgs e) {
+            if (!useFingerprintSwitch.IsToggled) {
+                lblAliasNotify.IsVisible = false;
+                aliasEntry.IsVisible = false;
+                lblEmailEPasswordNotify.IsVisible = true;
+                emailEntry.IsVisible = true;
+                passwordEntry.IsVisible = true;
+            }
+            else {
+                lblAliasNotify.IsVisible = true;
+                aliasEntry.IsVisible = true;
+                lblEmailEPasswordNotify.IsVisible = false;
+                emailEntry.IsVisible = false;
+                passwordEntry.IsVisible = false;
+            }
         }
 
         private async void LoginButton_Clicked(object sender, EventArgs e) {
@@ -35,6 +68,13 @@ namespace Tribunus.Pages {
            
             if (useFingerprintSwitch.IsToggled) {
                 if (haveFingerprint) {
+                    if (string.IsNullOrEmpty(aliasEntry.Text)) {
+                        await DisplayAlert("Erro", "Digite seu apelido", "Ok");
+
+                        aliasEntry.Focus();
+                        return;
+                    }
+
                     await fingerPrint.AuthenticationAsync("Toque no sensor", swAutoCancel.IsToggled);
 
                     if (fingerPrint.fingerPrintValidate) {

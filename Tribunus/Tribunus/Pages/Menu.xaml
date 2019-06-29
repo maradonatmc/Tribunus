@@ -48,6 +48,18 @@
                                     <Label Text="Mural" VerticalTextAlignment="Center"/>
                                 </StackLayout>
                             </ViewCell>
+
+                            <ViewCell Tapped="GoMembros">
+                                <StackLayout Padding="15,10">
+                                    <Label Text="Membros" VerticalTextAlignment="Center"/>
+                                </StackLayout>
+                            </ViewCell>
+
+                            <ViewCell Tapped="GoFinanceiro">
+                                <StackLayout Padding="15,10">
+                                    <Label Text="Financeiro" VerticalTextAlignment="Center"/>
+                                </StackLayout>
+                            </ViewCell>
                         </TableSection>
                     </TableView>
                 </StackLayout>

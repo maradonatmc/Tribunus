@@ -5,10 +5,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Tribunus.Pages.Login"
-             Title="Login">
+             Title="Tribunus MC">
     <ScrollView>
         <StackLayout Spacing="20">
-            <Label Text="Tribunus"
+            <Label Text="Login"
                     FontSize="30"
                     VerticalTextAlignment="Center"
                     HorizontalOptions="Center"
@@ -16,6 +16,13 @@
             </Label>
 
             <Label Text="Digite o seu e-mail e senha para acesso"
+                   x:Name="lblEmailEPasswordNotify"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center" >
+            </Label>
+            
+            <Label Text="Digite seu apelido para acesso"
+                   x:Name="lblAliasNotify"
                     VerticalTextAlignment="Center"
                     HorizontalTextAlignment="Center" >
             </Label>
@@ -30,6 +37,13 @@
             <Entry x:Name="passwordEntry"
                     Placeholder="Entre com a sua senha"
                     IsPassword="true"
+                    VerticalOptions="Center"
+                    HorizontalOptions="FillAndExpand" >
+            </Entry>
+
+            <Entry x:Name="aliasEntry"
+                    Placeholder="Entre com o apelido"
+                    Keyboard="Text" 
                     VerticalOptions="Center"
                     HorizontalOptions="FillAndExpand" >
             </Entry>
