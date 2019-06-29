@@ -13,6 +13,8 @@ namespace Tribunus.Pages {
         public Menu() {
             InitializeComponent();
 
+            NavigationPage.SetHasNavigationBar(this, false);
+
             switch (Device.RuntimePlatform) {
                 case Device.Android:
                     Padding = new Thickness(10, 20, 10, 10);
