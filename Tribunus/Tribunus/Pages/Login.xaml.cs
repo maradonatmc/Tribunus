@@ -43,6 +43,7 @@ namespace Tribunus.Pages {
             }
 
             loginButton.Clicked += LoginButton_Clicked;
+            registerButton.Clicked += RegisterButton_Clicked;
             useFingerprintSwitch.Toggled += HandleSwitchToggledByUser;
         }
 
@@ -112,6 +113,14 @@ namespace Tribunus.Pages {
 
                 this.LogarAsync();
             }            
+        }
+
+        private async void RegisterButton_Clicked(object sender, EventArgs e) {
+            waitActivityIndicator.IsRunning = true;
+
+            waitActivityIndicator.IsRunning = false;
+
+            await Navigation.PushAsync(new Pages.Cadastro());
         }
 
         private async void LogarAsync() {

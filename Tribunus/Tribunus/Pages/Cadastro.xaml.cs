@@ -23,5 +23,13 @@ namespace Tribunus.Pages {
                     break;
             }
         }
+
+        private void DatNasc_DataSelected(object sender, DateChangedEventArgs e) {
+            DatNascDatePicker.TextColor = Color.DarkTurquoise;
+        }
+
+        private void DatIngresso_DataSelected(object sender, DateChangedEventArgs e) {
+            DatIngressoDatePicker.TextColor = Color.DarkTurquoise;
+        }
     }
 }

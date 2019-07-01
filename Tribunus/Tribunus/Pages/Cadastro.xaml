@@ -6,11 +6,99 @@
              mc:Ignorable="d"
              x:Class="Tribunus.Pages.Cadastro"
              Title="Cadastro">
-    <ContentPage.Content>
+    <StackLayout>
+        <ScrollView>
+            <StackLayout Spacing="20">
+                <Label Text="Cadastro de Membro"
+                   x:Name="lblFullName"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center" >
+                </Label>
+                <Entry x:Name="FullNameEntry"
+                   Placeholder="Insira seu nome completo"
+                   Keyboard="Text" 
+                   VerticalOptions="Center"
+                   HorizontalOptions="FillAndExpand" >
+                </Entry>
+
+                <Label Text="Data de Nascimento"
+                   x:Name="lblDatNasc"
+                   VerticalTextAlignment="Start" >
+                </Label>
+                <DatePicker x:Name="DatNascDatePicker"
+                        Format="dd/MM/yyyy"
+                        DateSelected="DatNasc_DataSelected" 
+                        VerticalOptions="Center"
+                        HorizontalOptions="FillAndExpand" />
+
+                <Entry x:Name="AliasNameEntry"
+                   Placeholder="Insira seu apelido"
+                   Keyboard="Text" 
+                   VerticalOptions="Center"
+                   HorizontalOptions="FillAndExpand" >
+                </Entry>
+
+                <Entry x:Name="EmailEntry"
+                   Placeholder="Insira seu e-mail @tribunus"
+                   Keyboard="Email" 
+                   VerticalOptions="Center"
+                   HorizontalOptions="FillAndExpand" >
+                </Entry>
+
+                <Entry x:Name="passwordEntry"
+                    Placeholder="Entre com a sua senha"
+                    IsPassword="true"
+                    VerticalOptions="Center"
+                    HorizontalOptions="FillAndExpand" >
+                </Entry>
+
+                <Label Text="Data de Ingresso"
+                   x:Name="lblDatIngresso"
+                   VerticalTextAlignment="Start" >
+                </Label>
+                <DatePicker x:Name="DatIngressoDatePicker"
+                        Format="dd/MM/yyyy"
+                        DateSelected="DatIngresso_DataSelected" 
+                        VerticalOptions="Center"
+                        HorizontalOptions="FillAndExpand" />
+
+                <Label Text="Buscar Lista de Graduação"
+                   x:Name="lblGraduacao"
+                   VerticalTextAlignment="Start" >
+                </Label>
+
+                <Entry x:Name="CnhEntry"
+                   Placeholder="Tipo CNH (A, AB, AC, etc...)"
+                   Keyboard="Text" 
+                   VerticalOptions="Center"
+                   HorizontalOptions="FillAndExpand" >
+                </Entry>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Ad Aeternum"
+                        HorizontalOptions="Start" 
+                        VerticalOptions="Center">
+                    </Label>
+                    <Switch x:Name="adAeternumSwitch" 
+                        HorizontalOptions="End"
+                        VerticalOptions="Center">
+                    </Switch>
+                </StackLayout>
+
+                <ActivityIndicator x:Name="waitActivityIndicator"
+                                HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="CenterAndExpand" >
+                </ActivityIndicator>
+            </StackLayout>
+        </ScrollView>
         <StackLayout>
-            <Label Text="Cadastro"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Button x:Name="cadastrarButton"                    
+                BackgroundColor="Green"
+                Text="Cadastrar"
+                TextColor="White"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="Center">
+            </Button>
         </StackLayout>
-    </ContentPage.Content>
+    </StackLayout>
 </ContentPage>
