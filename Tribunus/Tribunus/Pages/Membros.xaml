@@ -7,8 +7,9 @@
              x:Class="Tribunus.Pages.Membros" 
              Title="Membros">
     <StackLayout>
-        <ListView x:Name="listView" 
+        <ListView x:Name="lvMembers" 
                   IsGroupingEnabled="True"
+                  SeparatorVisibility="Default"
                   GroupDisplayBinding="{Binding CodGraduacao}"
                   GroupShortNameBinding="{Binding DscGraduacao}">
             <ListView.ItemTemplate>

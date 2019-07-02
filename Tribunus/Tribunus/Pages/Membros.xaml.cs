@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Tribunus.Classes;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -53,7 +54,9 @@ namespace Tribunus.Pages {
             ProsperoCategory.Add(new Members { Apelido = "Zé Bunitinho", NomeMembro = "Cristian" });
             ListaAgrupada.Add(ProsperoCategory);
 
-            listView.ItemsSource = ListaAgrupada;
+            lvMembers.ItemsSource = ListaAgrupada;
+            //var list = new List<Graduation>() { EscudadoCategory, MeioEscudoCategory, ProsperoCategory };
+            //lvMembers.ItemsSource = list;
         }
     }
 }

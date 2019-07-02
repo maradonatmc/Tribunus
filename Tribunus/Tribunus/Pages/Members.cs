@@ -1,4 +1,4 @@
-﻿namespace Tribunus.Classes {
+﻿namespace Tribunus.Pages {
     public class Members {
         public string Apelido { get; set; }
         public string NomeMembro { get; set; }
