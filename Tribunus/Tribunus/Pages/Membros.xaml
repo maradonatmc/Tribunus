@@ -6,11 +6,16 @@
              mc:Ignorable="d"
              x:Class="Tribunus.Pages.Membros" 
              Title="Membros">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Membros"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+    <StackLayout>
+        <ListView x:Name="listView" 
+                  IsGroupingEnabled="True"
+                  GroupDisplayBinding="{Binding CodGraduacao}"
+                  GroupShortNameBinding="{Binding DscGraduacao}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Apelido}" Detail="{Binding NomeMembro}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>
