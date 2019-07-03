@@ -3,7 +3,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Tribunus.Pages.Financeiro"
+             x:Class="Tribunus.Views.FinanceiroPage"
              Title="Financeiro">
   <ContentPage.Content>
     <StackLayout>

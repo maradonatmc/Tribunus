@@ -4,11 +4,11 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Tribunus.Pages.MenuDetail"
-             Title="Tribunus MC">
+             x:Class="Tribunus.Views.ReunioesPage"
+             Title="Reuniões">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Detail Page"
+            <Label Text="Reuniões"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>

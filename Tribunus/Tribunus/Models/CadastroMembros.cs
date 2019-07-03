@@ -1,9 +1,9 @@
-﻿namespace Tribunus.Pages {
-    public class Members {
+﻿namespace Tribunus.Models {
+    public class CadastroMembros {
         public string Apelido { get; set; }
         public string NomeMembro { get; set; }
 
-        public Members() {
+        public CadastroMembros() {
         }
     }
 }

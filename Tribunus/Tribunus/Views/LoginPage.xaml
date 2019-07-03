@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Tribunus.Pages.Login"
+             x:Class="Tribunus.Views.LoginPage"
              Title="Tribunus MC">
     <ScrollView>
         <StackLayout Spacing="20">

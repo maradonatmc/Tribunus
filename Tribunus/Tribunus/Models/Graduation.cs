@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace Tribunus.Pages {
-    public class Graduation : ObservableCollection<Members> {
+namespace Tribunus.Models {
+    public class Graduation : ObservableCollection<CadastroMembros> {
 
         public string CodGraduacao { get; set; }
         public string DscGraduacao { get; set; }

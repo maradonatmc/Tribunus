@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Tribunus.Pages {
+namespace Tribunus.Views {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Mural: ContentPage {
-        public Mural() {
+    public partial class MenuDetail: ContentPage {
+        public MenuDetail() {
             InitializeComponent();
 
             switch (Device.RuntimePlatform) {

@@ -4,7 +4,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Tribunus.Classes {
+namespace Tribunus.Services {
     public class FingerprintValidation {
         private CancellationTokenSource _cancel;
         public bool fingerPrintValidate;

@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Tribunus.Pages {
+namespace Tribunus.Views {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Menu: MasterDetailPage {
-        public Menu() {
+    public partial class MenuPage: MasterDetailPage {
+        public MenuPage() {
             InitializeComponent();
 
             NavigationPage.SetHasNavigationBar(this, false);
@@ -29,25 +23,25 @@ namespace Tribunus.Pages {
         }
 
         private void GoCadastro(object sender, System.EventArgs e) {
-            Detail.Navigation.PushAsync(new Cadastro());
+            Detail.Navigation.PushAsync(new CadastroMembrosPage());
             IsPresented = false;
         }
         private void GoReunioes(object sender, System.EventArgs e) {
-            Detail.Navigation.PushAsync(new Reunioes());
+            Detail.Navigation.PushAsync(new ReunioesPage());
             IsPresented = false;
         }
         private void GoMural(object sender, System.EventArgs e) {
-            Detail.Navigation.PushAsync(new Mural());
+            Detail.Navigation.PushAsync(new MuralPage());
             IsPresented = false;
         }
 
         private void GoMembros(object sender, System.EventArgs e) {
-            Detail.Navigation.PushAsync(new Membros());
+            Detail.Navigation.PushAsync(new MembrosPage());
             IsPresented = false;
         }
 
         private void GoFinanceiro(object sender, System.EventArgs e) {
-            Detail.Navigation.PushAsync(new Financeiro());
+            Detail.Navigation.PushAsync(new FinanceiroPage());
             IsPresented = false;
         }
     }

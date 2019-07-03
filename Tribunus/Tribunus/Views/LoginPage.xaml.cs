@@ -1,20 +1,13 @@
-﻿using Newtonsoft.Json;
-using Tribunus.Classes;
-using System;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Plugin.Fingerprint;
-using System.Threading;
-using Plugin.Fingerprint.Abstractions;
+using Tribunus.Services;
 
-namespace Tribunus.Pages {
+namespace Tribunus.Views {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Login: ContentPage {
+    public partial class LoginPage: ContentPage {
         private FingerprintValidation fingerPrint = new FingerprintValidation();
-        public Login() {
+        public LoginPage() {
             InitializeComponent();
 
             switch(Device.RuntimePlatform) {
@@ -120,7 +113,7 @@ namespace Tribunus.Pages {
 
             waitActivityIndicator.IsRunning = false;
 
-            await Navigation.PushAsync(new Pages.Cadastro());
+            await Navigation.PushAsync(new CadastroMembrosPage());
         }
 
         private async void LogarAsync() {
@@ -157,7 +150,7 @@ namespace Tribunus.Pages {
             //var user = JsonConvert.DeserializeObject<User>(resp);
             waitActivityIndicator.IsRunning = false;
 
-            await Navigation.PushAsync(new Pages.Menu());
+            await Navigation.PushAsync(new MenuPage());
         }
     }
 }

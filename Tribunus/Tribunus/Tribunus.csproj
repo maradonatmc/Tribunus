@@ -18,28 +18,28 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Pages\Cadastro.xaml">
+    <EmbeddedResource Update="Views\CadastroMembrosPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\Financeiro.xaml">
+    <EmbeddedResource Update="Views\FinanceiroPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\Login.xaml">
+    <EmbeddedResource Update="Views\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\Membros.xaml">
+    <EmbeddedResource Update="Views\MembrosPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\Menu.xaml">
+    <EmbeddedResource Update="Views\MenuPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\MenuDetail.xaml">
+    <EmbeddedResource Update="Views\MenuDetail.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\Mural.xaml">
+    <EmbeddedResource Update="Views\MuralPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\Reunioes.xaml">
+    <EmbeddedResource Update="Views\ReunioesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -57,5 +57,33 @@
     <None Update="Pages\Login.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\CadastroMembrosPage.xaml.cs">
+      <DependentUpon>CadastroMembrosPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\FinanceiroPage.xaml.cs">
+      <DependentUpon>FinanceiroPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MembrosPage.xaml.cs">
+      <DependentUpon>MembrosPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MenuPage.xaml.cs">
+      <DependentUpon>MenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MuralPage.xaml.cs">
+      <DependentUpon>MuralPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ReunioesPage.xaml.cs">
+      <DependentUpon>ReunioesPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

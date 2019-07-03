@@ -1,15 +1,12 @@
-﻿using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using Tribunus.Pages;
-using Tribunus.Classes;
+﻿using Xamarin.Forms;
+using Tribunus.Views;
 
 namespace Tribunus {
     public partial class App: Application {
         public App() {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Login());
+            MainPage = new NavigationPage(new LoginPage());
         }
 
         protected override void OnStart() {
