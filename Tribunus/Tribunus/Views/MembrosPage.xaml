@@ -8,10 +8,8 @@
              Title="Membros">
     <StackLayout>
         <ListView x:Name="lvMembers" 
-                  IsGroupingEnabled="True"
-                  ItemsSource="{Binding ListaAgrupada}"
-                  GroupDisplayBinding="{Binding CodGraduacao}"
-                  GroupShortNameBinding="{Binding DscGraduacao}">
+                  ItemsSource="{Binding lstMembros}"
+                  CachingStrategy="RecycleElement">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -26,18 +24,16 @@
                             </Grid.ColumnDefinitions>
                             <Label Grid.Row="0" 
                                Grid.Column="0" 
-                               Grid.ColumnSpan="1" 
-                               Text="{Binding Apelido}"
+                               Text="{Binding NOME_MEMBRO}"
+                               Style="{StaticResource labelStyle}"
                                FontSize="Medium" 
                                FontAttributes="Bold"
                                TextColor="Black">
                             </Label>
                             <Label Grid.Row="1" 
                                Grid.Column="0" 
-                               Grid.ColumnSpan="2" 
-                               Text="{Binding NomeMembro}" 
-                               FontSize="Small" 
-                               TextColor="Black">
+                               Text="{Binding APELIDO_MEMBRO}" 
+                               Style="{StaticResource labelStyle}">
                             </Label>
                         </Grid>
                     </ViewCell>

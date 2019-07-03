@@ -6,6 +6,10 @@
              mc:Ignorable="d"
              x:Class="Tribunus.App">
     <Application.Resources>
-
+        <Style x:Key="labelStyle" TargetType="Label">
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="TextColor" Value="Black" />
+        </Style>
     </Application.Resources>
 </Application>
