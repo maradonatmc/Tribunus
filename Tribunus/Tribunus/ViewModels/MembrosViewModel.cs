@@ -1,21 +1,27 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Linq;
 using Tribunus.Models;
 
 namespace Tribunus.ViewModels {
-    public class MembrosViewModel {
-        private ObservableCollection<Membros> _lstMembros;
-        public ObservableCollection<Membros> lstMembros {
-            get { return _lstMembros; }
-            set { _lstMembros = value; }
+    public partial class MembrosViewModel {
+        private ObservableCollection<Membro> items;
+        public ObservableCollection<Membro> Items {
+            get { return items; }
+            set { items = value; }
         }
 
         public MembrosViewModel() {
-            lstMembros = new ObservableCollection<Membros>() {
-                new Membros {
-                    SEQ_MEMBRO = 1,
+            Items = new ObservableCollection<Membro>() {
+                new Membro() {
                     NOME_MEMBRO = "Renato Ramos e Ramos",
                     APELIDO_MEMBRO = "Maradona - Escudado (Ad Aeternum)"
-                    }
+                },
+                new Membro() {
+                    NOME_MEMBRO = "Teste ListView",
+                    APELIDO_MEMBRO = "Teste ListView com Detalhes"
+                }
             };
         }
     }
