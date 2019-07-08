@@ -21,17 +21,11 @@ namespace Tribunus.Views {
             }
 
             if (!useFingerprintSwitch.IsToggled) {
-                lblAliasNotify.IsVisible = false;
-                aliasEntry.IsVisible = false;
-                lblEmailEPasswordNotify.IsVisible = true;
-                emailEntry.IsVisible = true;
+                lblAliasNotify.Text = "Digite seu apelido e sua senha para acesso";
                 passwordEntry.IsVisible = true;
             }
             else {
-                lblAliasNotify.IsVisible = true;
-                aliasEntry.IsVisible = true;
-                lblEmailEPasswordNotify.IsVisible = false;
-                emailEntry.IsVisible = false;
+                lblAliasNotify.Text = "Digite seu apelido para acesso";
                 passwordEntry.IsVisible = false;
             }
 
@@ -42,17 +36,11 @@ namespace Tribunus.Views {
 
         private void HandleSwitchToggledByUser(object sender, ToggledEventArgs e) {
             if (!useFingerprintSwitch.IsToggled) {
-                lblAliasNotify.IsVisible = false;
-                aliasEntry.IsVisible = false;
-                lblEmailEPasswordNotify.IsVisible = true;
-                emailEntry.IsVisible = true;
+                lblAliasNotify.Text = "Digite seu apelido e sua senha para acesso";
                 passwordEntry.IsVisible = true;
             }
             else {
-                lblAliasNotify.IsVisible = true;
-                aliasEntry.IsVisible = true;
-                lblEmailEPasswordNotify.IsVisible = false;
-                emailEntry.IsVisible = false;
+                lblAliasNotify.Text = "Digite seu apelido para acesso";
                 passwordEntry.IsVisible = false;
             }
         }
@@ -83,17 +71,10 @@ namespace Tribunus.Views {
                 }
             }
             else {
-                if (string.IsNullOrEmpty(emailEntry.Text)) {
-                    await DisplayAlert("Erro", "Digite seu e-mail", "Ok");
+                if (string.IsNullOrEmpty(aliasEntry.Text)) {
+                    await DisplayAlert("Erro", "Digite seu apelido", "Ok");
 
-                    emailEntry.Focus();
-                    return;
-                }
-
-                if (!Utilities.IsValidEmail(emailEntry.Text)) {
-                    await DisplayAlert("Erro", "Digite um e-mail válido", "Ok");
-
-                    emailEntry.Focus();
+                    aliasEntry.Focus();
                     return;
                 }
 
