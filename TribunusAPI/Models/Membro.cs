@@ -1,9 +1,11 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace TribunusAPI.Models {
     public class Membro {
 
         private int _SEQ_MEMBRO;
+        [Key]
         public int SEQ_MEMBRO {
             get { return _SEQ_MEMBRO; }
             set { _SEQ_MEMBRO = value; }

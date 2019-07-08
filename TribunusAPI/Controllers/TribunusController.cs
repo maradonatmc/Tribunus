@@ -38,9 +38,9 @@ namespace TribunusAPI.Controllers {
             return await _context.Membro.ToListAsync();
         }
 
-        [HttpGet("{userName}")]
-        public async Task<ActionResult<Membro>> ValidarLogin(string pUserName) {
-            var membro = await _context.Membro.FindAsync(pUserName);
+        [HttpGet("{userId}")]
+        public async Task<ActionResult<Membro>> ValidarLogin(int Id) {
+            var membro = await _context.Membro.FindAsync(Id);
 
             if (membro == null) {
                 return NotFound();
