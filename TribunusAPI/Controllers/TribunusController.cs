@@ -6,12 +6,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using TribunusAPI.Context;
 using TribunusAPI.Models;
+using TribunusAPI.Base;
 
 namespace TribunusAPI.Controllers {
     [Route("WebAPI/[controller]")]
     [ApiController]
     public class TribunusController: ControllerBase {
         private readonly TribunusContext _context;
+        private MembroBase baseMembro;
 
         public TribunusController(TribunusContext context) {
             _context = context;
@@ -38,15 +40,26 @@ namespace TribunusAPI.Controllers {
             return await _context.Membro.ToListAsync();
         }
 
-        [HttpGet("{userId}")]
-        public async Task<ActionResult<Membro>> ValidarLogin(int Id) {
-            var membro = await _context.Membro.FindAsync(Id);
+        [HttpGet("ValidarMembro/{userName}")]
+        public async Task<ActionResult<Membro>> ValidarMembro(string userName) {
+            try {
+                baseMembro = new MembroBase(_context);
+                List<Membro> membro = baseMembro.BuscarMembro(userName);
+                Membro membroValido = new Membro();
 
-            if (membro == null) {
+                if (membro == null) {
+                    return NotFound();
+                }
+
+                foreach (Membro m in membro) {
+                    membroValido = await _context.Membro.FindAsync(m.SEQ_MEMBRO);
+                }
+
+                return membroValido;
+            }
+            catch (Exception ex) {
                 return NotFound();
             }
-
-            return membro;
         }
     }
 }
