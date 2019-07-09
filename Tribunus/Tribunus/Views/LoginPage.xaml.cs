@@ -1,7 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Net.Http;
+using System.Text;
+using Tribunus.ApiRequest;
+using Tribunus.Models;
+using Tribunus.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Tribunus.Services;
 
 namespace Tribunus.Views {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -10,7 +15,7 @@ namespace Tribunus.Views {
         public LoginPage() {
             InitializeComponent();
 
-            switch(Device.RuntimePlatform) {
+            switch (Device.RuntimePlatform) {
                 case Device.Android:
                     Padding = new Thickness(10, 20, 10, 10);
                     break;
@@ -47,7 +52,7 @@ namespace Tribunus.Views {
 
         private async void LoginButton_Clicked(object sender, EventArgs e) {
             var haveFingerprint = await fingerPrint.HaveFingerprint();
-           
+
             if (useFingerprintSwitch.IsToggled) {
                 if (haveFingerprint) {
                     if (string.IsNullOrEmpty(aliasEntry.Text)) {
@@ -60,7 +65,9 @@ namespace Tribunus.Views {
                     await fingerPrint.AuthenticationAsync("Toque no sensor", swAutoCancel.IsToggled);
 
                     if (fingerPrint.fingerPrintValidate) {
+                        passwordEntry.Text = "0";
                         this.LogarAsync();
+                        passwordEntry.Text = "";
                     }
                     else {
                         await DisplayAlert("Falha de Autenticação", "Tribunus não detectado", "Ok");
@@ -86,7 +93,7 @@ namespace Tribunus.Views {
                 }
 
                 this.LogarAsync();
-            }            
+            }
         }
 
         private async void RegisterButton_Clicked(object sender, EventArgs e) {
@@ -100,35 +107,35 @@ namespace Tribunus.Views {
         private async void LogarAsync() {
             waitActivityIndicator.IsRunning = true;
 
-            //var loginRequest = new LoginRequest { User = emailEntry.Text, Password = passwordEntry.Text };
+            var membroRequest = new MembroRequest { USER_NAME = aliasEntry.Text, PASSWORD = passwordEntry.Text };
 
             /**/
-            //var jsonRequest = JsonConvert.SerializeObject(loginRequest);
-            //var httpContent = new StringContent(jsonRequest, Encoding.UTF8, "application/json");
-            //var resp = string.Empty;
+            var jsonRequest = JsonConvert.SerializeObject(membroRequest);
+            var httpContent = new StringContent(jsonRequest, Encoding.UTF8, "application/json");
+            var resp = string.Empty;
 
-            //try {
-                //var client = new HttpClient();
-                //client.BaseAddress = new Uri("http://tribunus.somee.com");
-                //var url = "/API/Users/Login";
-                //var result = await client.PostAsync(url, httpContent);
+            try {
+                var client = new HttpClient();
+                client.BaseAddress = new Uri("http://128.0.0.36");
+                var url = "/TribunusAPI/WebAPI/Tribunus/ValidarMembro/" + membroRequest.USER_NAME + "/" + membroRequest.PASSWORD;
+                var result = await client.GetAsync(url);
 
-                //if (!result.IsSuccessStatusCode) {
-                //    await DisplayAlert("Erro", "Usuário ou Senha incorretos", "Aceitar");
-                //    waitActivityIndicator.IsRunning = false;
-                //    return;
-                //}
 
-                //resp = await result.Content.ReadAsStringAsync();
-            //}
-            //catch (Exception ex) {
-            //    await DisplayAlert("Erro", ex.Message, "Ok");
-            //    waitActivityIndicator.IsRunning = false;
-            //    return;
-            //}
+                if (!result.IsSuccessStatusCode) {
+                    await DisplayAlert("Erro", "Membro ou Senha incorretos", "Ok");
+                    waitActivityIndicator.IsRunning = false;
+                    return;
+                }
 
-            /*Manter enquanto não implementado API*/
-            //var user = JsonConvert.DeserializeObject<User>(resp);
+                resp = await result.Content.ReadAsStringAsync();
+                var membro = JsonConvert.DeserializeObject<Membro>(resp);
+            }
+            catch (Exception ex) {
+                await DisplayAlert("Erro", ex.Message, "Ok");
+                waitActivityIndicator.IsRunning = false;
+                return;
+            }
+
             waitActivityIndicator.IsRunning = false;
 
             await Navigation.PushAsync(new MenuPage());

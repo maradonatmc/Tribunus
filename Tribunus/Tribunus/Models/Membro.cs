@@ -2,6 +2,8 @@
 
 namespace Tribunus.Models {
     public class Membro {
+        public Membro() {
+        }
 
         private int _SEQ_MEMBRO;
         public int SEQ_MEMBRO {

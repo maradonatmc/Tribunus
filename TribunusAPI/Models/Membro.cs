@@ -4,6 +4,9 @@ using System.ComponentModel.DataAnnotations;
 namespace TribunusAPI.Models {
     public class Membro {
 
+        public Membro() {
+        }
+
         private int _SEQ_MEMBRO;
         [Key]
         public int SEQ_MEMBRO {

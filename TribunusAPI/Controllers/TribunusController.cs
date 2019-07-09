@@ -40,8 +40,8 @@ namespace TribunusAPI.Controllers {
             return await _context.Membro.ToListAsync();
         }
 
-        [HttpGet("ValidarMembro/{userName}")]
-        public async Task<ActionResult<Membro>> ValidarMembro(string userName) {
+        [HttpGet("ValidarMembro/{userName}/{password}")]
+        public async Task<ActionResult<Membro>> ValidarMembro(string userName, string password) {
             try {
                 baseMembro = new MembroBase(_context);
                 List<Membro> membro = baseMembro.BuscarMembro(userName);
