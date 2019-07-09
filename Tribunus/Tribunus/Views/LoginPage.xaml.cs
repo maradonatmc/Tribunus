@@ -65,9 +65,7 @@ namespace Tribunus.Views {
                     await fingerPrint.AuthenticationAsync("Toque no sensor", swAutoCancel.IsToggled);
 
                     if (fingerPrint.fingerPrintValidate) {
-                        passwordEntry.Text = "0";
                         this.LogarAsync();
-                        passwordEntry.Text = "";
                     }
                     else {
                         await DisplayAlert("Falha de Autenticação", "Tribunus não detectado", "Ok");
@@ -106,20 +104,21 @@ namespace Tribunus.Views {
 
         private async void LogarAsync() {
             waitActivityIndicator.IsRunning = true;
-
-            var membroRequest = new MembroRequest { USER_NAME = aliasEntry.Text, PASSWORD = passwordEntry.Text };
-
-            /**/
-            var jsonRequest = JsonConvert.SerializeObject(membroRequest);
-            var httpContent = new StringContent(jsonRequest, Encoding.UTF8, "application/json");
             var resp = string.Empty;
+            var url = string.Empty;
 
             try {
                 var client = new HttpClient();
                 client.BaseAddress = new Uri("http://128.0.0.36");
-                var url = "/TribunusAPI/WebAPI/Tribunus/ValidarMembro/" + membroRequest.USER_NAME + "/" + membroRequest.PASSWORD;
-                var result = await client.GetAsync(url);
 
+                if (useFingerprintSwitch.IsToggled) {
+                    url = "/TribunusAPI/WebAPI/Tribunus/ValidarMembro/" + aliasEntry.Text + "/0";
+                }
+                else {
+                    url = "/TribunusAPI/WebAPI/Tribunus/ValidarMembro/" + aliasEntry.Text + "/" + passwordEntry.Text;
+                }
+                
+                var result = await client.GetAsync(url);
 
                 if (!result.IsSuccessStatusCode) {
                     await DisplayAlert("Erro", "Membro ou Senha incorretos", "Ok");
