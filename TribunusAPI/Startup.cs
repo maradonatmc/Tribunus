@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using TribunusAPI.Context;
+using TribunusAPI.Data;
 
 namespace TribunusAPI {
     public class Startup {
@@ -15,8 +15,9 @@ namespace TribunusAPI {
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services) {
-            services.AddDbContext<TribunusContext>(opt =>
-                opt.UseInMemoryDatabase("TribunusList"));
+            services.AddDbContext<TribunusContext>(options => 
+                options.UseSqlServer(Configuration.GetConnectionString("TribunusContext"), builder =>
+                builder.MigrationsAssembly("TribunusAPI")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

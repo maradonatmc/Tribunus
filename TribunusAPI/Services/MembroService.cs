@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TribunusAPI.Context;
+using TribunusAPI.Data;
 using TribunusAPI.Models;
 
-namespace TribunusAPI.Base {
-    public class MembroBase {
+namespace TribunusAPI.Services {
+    public class MembroService {
         private readonly TribunusContext _context;
-        public MembroBase(TribunusContext context) {
+        public MembroService(TribunusContext context) {
             _context = context;
         }
 

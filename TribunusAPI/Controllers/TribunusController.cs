@@ -4,16 +4,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TribunusAPI.Context;
+using TribunusAPI.Data;
 using TribunusAPI.Models;
-using TribunusAPI.Base;
+using TribunusAPI.Services;
 
 namespace TribunusAPI.Controllers {
     [Route("WebAPI/[controller]")]
     [ApiController]
     public class TribunusController: ControllerBase {
         private readonly TribunusContext _context;
-        private MembroBase baseMembro;
+        private MembroService membroService;
 
         public TribunusController(TribunusContext context) {
             _context = context;
@@ -43,8 +43,8 @@ namespace TribunusAPI.Controllers {
         [HttpGet("ValidarMembro/{userName}/{password}")]
         public async Task<ActionResult<Membro>> ValidarMembro(string userName, string password) {
             try {
-                baseMembro = new MembroBase(_context);
-                List<Membro> membro = baseMembro.BuscarMembro(userName);
+                membroService = new MembroService(_context);
+                List<Membro> membro = membroService.BuscarMembro(userName);
                 Membro membroValido = new Membro();
 
                 if (membro == null) {
