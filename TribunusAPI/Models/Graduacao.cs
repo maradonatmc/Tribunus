@@ -3,6 +3,10 @@
         public Graduacao() {
         }
 
+        public Graduacao(string pGraduacao) {
+            DSC_GRADUACAO = pGraduacao;
+        }
+
         private int _SEQ_GRADUACAO;
         public int SEQ_GRADUACAO {
             get { return _SEQ_GRADUACAO; }

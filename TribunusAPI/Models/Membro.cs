@@ -7,6 +7,19 @@ namespace TribunusAPI.Models {
         public Membro() {
         }
 
+        public Membro(string pNomeMembro, DateTime pDatNasc, string pApelidoMembro, DateTime pDatIngresso, int pSeqGraduacao, 
+            string pCnh, bool pAdAeternum, bool pAtivo, DateTime pDatUltAtualizacao) {
+            NOME_MEMBRO = pNomeMembro;
+            DAT_NASCIMENTO = pDatNasc;
+            APELIDO_MEMBRO = pApelidoMembro;
+            DAT_INGRESSO = pDatIngresso;
+            SEQ_GRADUACAO = pSeqGraduacao;
+            DSC_CNH = pCnh;
+            FLG_ADAETERNUM = pAdAeternum;
+            FLG_ATIVO = pAtivo;
+            DAT_ULT_ATUALIZACAO = pDatUltAtualizacao;
+        }
+
         private int _SEQ_MEMBRO;
         [Key]
         public int SEQ_MEMBRO {

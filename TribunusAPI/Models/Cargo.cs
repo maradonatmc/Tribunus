@@ -3,6 +3,10 @@
         public Cargo() {
         }
 
+        public Cargo(string pCargo) {
+            DSC_CARGO = pCargo;
+        }
+
         private int _SEQ_CARGO;
         public int SEQ_CARGO {
             get { return _SEQ_CARGO; }

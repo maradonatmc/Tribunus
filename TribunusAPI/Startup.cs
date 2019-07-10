@@ -19,11 +19,14 @@ namespace TribunusAPI {
                 options.UseSqlServer(Configuration.GetConnectionString("TribunusContext"), builder =>
                 builder.MigrationsAssembly("TribunusAPI")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddScoped<SeedingService>();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env) {
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, SeedingService seedingService) {
             if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
+                seedingService.Seed();
             }
             else {
                 app.UseHsts();
