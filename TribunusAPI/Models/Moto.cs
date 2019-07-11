@@ -8,34 +8,34 @@ namespace TribunusAPI.Models {
         public Moto() {
         }
 
-        private int _SEQ_MOTO;
-        public int SEQ_MOTO {
-            get { return _SEQ_MOTO; }
-            set { _SEQ_MOTO = value; }
+        private int _Id;
+        public int Id {
+            get { return _Id; }
+            set { _Id = value; }
         }
 
-        private string _DSC_MARCA;
-        public string DSC_MARCA {
-            get { return _DSC_MARCA; }
-            set { _DSC_MARCA = value; }
+        private string _DscMarca;
+        public string DscMarca {
+            get { return _DscMarca; }
+            set { _DscMarca = value; }
         }
 
-        private string _DSC_MODELO;
-        public string DSC_MODELO {
-            get { return _DSC_MODELO; }
-            set { _DSC_MODELO = value; }
+        private string _DscModelo;
+        public string DscModelo {
+            get { return _DscModelo; }
+            set { _DscModelo = value; }
         }
 
-        private string _DSC_ANO;
-        public string DSC_ANO {
-            get { return _DSC_ANO; }
-            set { _DSC_ANO = value; }
+        private string _DscAno;
+        public string DscAno {
+            get { return _DscAno; }
+            set { _DscAno = value; }
         }
 
-        private string _DSC_PLACA;
-        public string DSC_PLACA {
-            get { return _DSC_PLACA; }
-            set { _DSC_PLACA = value; }
+        private string _DscPlaca;
+        public string DscPlaca {
+            get { return _DscPlaca; }
+            set { _DscPlaca = value; }
         }
     }
 }

@@ -17,22 +17,6 @@ namespace TribunusAPI.Controllers {
 
         public TribunusController(TribunusContext context) {
             _context = context;
-
-            if (_context.Membro.Count() == 0) {
-                _context.Membro.Add(new Membro {
-                    SEQ_MEMBRO = 1,
-                    NOME_MEMBRO = "Renato Ramos e Ramos",
-                    DAT_NASCIMENTO = new DateTime(1989, 12, 20),
-                    APELIDO_MEMBRO = "Maradona",
-                    DAT_INGRESSO = new DateTime(2013, 06, 07),
-                    SEQ_GRADUACAO = 1,
-                    DSC_CNH = "AB",
-                    FLG_ADAETERNUM = true,
-                    FLG_ATIVO = true
-                });
-
-                _context.SaveChanges();
-            }
         }
 
         [HttpGet]
@@ -52,7 +36,7 @@ namespace TribunusAPI.Controllers {
                 }
 
                 foreach (Membro m in membro) {
-                    membroValido = await _context.Membro.FindAsync(m.SEQ_MEMBRO);
+                    membroValido = await _context.Membro.FindAsync(m.Id);
                 }
 
                 return membroValido;

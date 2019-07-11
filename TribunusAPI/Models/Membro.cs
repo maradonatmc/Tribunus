@@ -7,78 +7,79 @@ namespace TribunusAPI.Models {
         public Membro() {
         }
 
-        public Membro(string pNomeMembro, DateTime pDatNasc, string pApelidoMembro, DateTime pDatIngresso, int pSeqGraduacao, 
+        public Membro(string pNomeMembro, DateTime pDatNasc, string pApelidoMembro, DateTime pDatIngresso, Graduacao pGraduacao, 
             string pCnh, bool pAdAeternum, bool pAtivo, DateTime pDatUltAtualizacao) {
-            NOME_MEMBRO = pNomeMembro;
-            DAT_NASCIMENTO = pDatNasc;
-            APELIDO_MEMBRO = pApelidoMembro;
-            DAT_INGRESSO = pDatIngresso;
-            SEQ_GRADUACAO = pSeqGraduacao;
-            DSC_CNH = pCnh;
-            FLG_ADAETERNUM = pAdAeternum;
-            FLG_ATIVO = pAtivo;
-            DAT_ULT_ATUALIZACAO = pDatUltAtualizacao;
+            NomeMembro = pNomeMembro;
+            DatNascimento = pDatNasc;
+            ApelidoMembro = pApelidoMembro;
+            DatIngresso = pDatIngresso;
+            Graduacao = pGraduacao;
+            DscCnh = pCnh;
+            FlgAdAeternum = pAdAeternum;
+            FlgAtivo = pAtivo;
+            DatUltAtualizacao = pDatUltAtualizacao;
         }
 
-        private int _SEQ_MEMBRO;
-        [Key]
-        public int SEQ_MEMBRO {
-            get { return _SEQ_MEMBRO; }
-            set { _SEQ_MEMBRO = value; }
+        private int _Id;
+        public int Id {
+            get { return _Id; }
+            set { _Id = value; }
         }
 
-        private string _NOME_MEMBRO;
-        public string NOME_MEMBRO {
-            get { return _NOME_MEMBRO; }
-            set { _NOME_MEMBRO = value; }
+        private string _NomeMembro;
+        public string NomeMembro {
+            get { return _NomeMembro; }
+            set { _NomeMembro = value; }
         }
 
-        private DateTime _DAT_NASCIMENTO;
-        public DateTime DAT_NASCIMENTO {
-            get { return _DAT_NASCIMENTO; }
-            set { _DAT_NASCIMENTO = value; }
+        private DateTime _DatNascimento;
+        public DateTime DatNascimento {
+            get { return _DatNascimento; }
+            set { _DatNascimento = value; }
         }
 
-        private string _APELIDO_MEMBRO;
-        public string APELIDO_MEMBRO {
-            get { return _APELIDO_MEMBRO; }
-            set { _APELIDO_MEMBRO = value; }
+        private string _ApelidoMembro;
+        public string ApelidoMembro {
+            get { return _ApelidoMembro; }
+            set { _ApelidoMembro = value; }
         }
 
-        private DateTime _DAT_INGRESSO;
-        public DateTime DAT_INGRESSO {
-            get { return _DAT_INGRESSO; }
-            set { _DAT_INGRESSO = value; }
+        private DateTime _DatIngresso;
+        public DateTime DatIngresso {
+            get { return _DatIngresso; }
+            set { _DatIngresso = value; }
         }
 
-        private int _SEQ_GRADUACAO;
-        public int SEQ_GRADUACAO {
-            get { return _SEQ_GRADUACAO; }
-            set { _SEQ_GRADUACAO = value; }
+        public Graduacao Graduacao { get; set; }
+
+        private int _IdGraduacao;
+        public int IdGraduacao {
+            get { return _IdGraduacao; }
+            set { _IdGraduacao = value; }
         }
 
-        private string _DSC_CNH;
-        public string DSC_CNH {
-            get { return _DSC_CNH; }
-            set { _DSC_CNH = value; }
+        private string _DscCnh;
+        public string DscCnh {
+            get { return _DscCnh; }
+            set { _DscCnh = value; }
         }
 
-        private bool _FLG_ADAETERNUM;
-        public bool FLG_ADAETERNUM {
-            get { return _FLG_ADAETERNUM; }
-            set { _FLG_ADAETERNUM = value; }
+        private bool _FlgAdAeternum;
+        public bool FlgAdAeternum {
+            get { return _FlgAdAeternum; }
+            set { _FlgAdAeternum = value; }
         }
 
-        private bool _FLG_ATIVO;
-        public bool FLG_ATIVO {
-            get { return _FLG_ATIVO; }
-            set { _FLG_ATIVO = value; }
+        private bool _FlgAtivo;
+        public bool FlgAtivo {
+            get { return _FlgAtivo; }
+            set { _FlgAtivo = value; }
         }
 
-        private DateTime? _DAT_ULT_ATUALIZACAO;
-        public DateTime? DAT_ULT_ATUALIZACAO {
-            get { return _DAT_ULT_ATUALIZACAO; }
-            set { _DAT_ULT_ATUALIZACAO = value; }
+        private DateTime? _DatUltAtualizacao;
+        public DateTime? DatUltAtualizacao {
+            get { return _DatUltAtualizacao; }
+            set { _DatUltAtualizacao = value; }
         }
     }
 }

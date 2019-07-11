@@ -8,22 +8,22 @@ namespace TribunusAPI.Models {
         public MotoMembro() {
         }
 
-        private int _SEQ_MOTO_MEMBRO;
-        public int SEQ_MOTO_MEMBRO {
-            get { return _SEQ_MOTO_MEMBRO; }
-            set { _SEQ_MOTO_MEMBRO = value; }
+        private int _Id;
+        public int Id {
+            get { return _Id; }
+            set { _Id = value; }
         }
 
-        private int _SEQ_MOTO;
-        public int SEQ_MOTO {
-            get { return _SEQ_MOTO; }
-            set { _SEQ_MOTO = value; }
+        private int _IdMoto;
+        public int IdMoto {
+            get { return _IdMoto; }
+            set { _IdMoto = value; }
         }
 
-        private int _SEQ_MEMBRO;
-        public int SEQ_MEMBRO {
-            get { return _SEQ_MEMBRO; }
-            set { _SEQ_MEMBRO = value; }
+        private int _IdMembro;
+        public int IdMembro {
+            get { return _IdMembro; }
+            set { _IdMembro = value; }
         }
     }
 }

@@ -6,40 +6,40 @@ namespace TribunusAPI.Models {
 
         }
 
-        private int _SEQ_DIRETORIA;
-        public int SEQ_DIRETORIA {
-            get { return _SEQ_DIRETORIA; }
-            set { _SEQ_DIRETORIA = value; }
+        private int _Id;
+        public int Id {
+            get { return _Id; }
+            set { _Id = value; }
         }
 
-        private int _SEQ_MEMBRO;
-        public int SEQ_MEMBRO {
-            get { return _SEQ_MEMBRO; }
-            set { _SEQ_MEMBRO = value; }
+        private int _IdMembro;
+        public int IdMembro {
+            get { return _IdMembro; }
+            set { _IdMembro = value; }
         }
 
-        private int _SEQ_CARGO;
-        public int SEQ_CARGO {
-            get { return _SEQ_CARGO; }
-            set { _SEQ_CARGO = value; }
+        private int _IdCargo;
+        public int IdCargo {
+            get { return _IdCargo; }
+            set { _IdCargo = value; }
         }
 
-        private DateTime _DAT_INICIO_FUNCAO;
-        public DateTime DAT_INICIO_FUNCAO {
-            get { return _DAT_INICIO_FUNCAO; }
-            set { _DAT_INICIO_FUNCAO = value; }
+        private DateTime _DatInicioFuncao;
+        public DateTime DatInicioFuncao {
+            get { return _DatInicioFuncao; }
+            set { _DatInicioFuncao = value; }
         }
 
-        private DateTime _DAT_FINAL_FUNCAO;
-        public DateTime DAT_FINAL_FUNCAO {
-            get { return _DAT_FINAL_FUNCAO; }
-            set { _DAT_FINAL_FUNCAO = value; }
+        private DateTime _DatFinalFuncao;
+        public DateTime DatFinalFuncao {
+            get { return _DatFinalFuncao; }
+            set { _DatFinalFuncao = value; }
         }
 
-        private bool _FLG_ATIVO;
-        public bool FLG_ATIVO {
-            get { return _FLG_ATIVO; }
-            set { _FLG_ATIVO = value; }
+        private bool _FlgAtivo;
+        public bool FlgAtivo {
+            get { return _FlgAtivo; }
+            set { _FlgAtivo = value; }
         }
     }
 }

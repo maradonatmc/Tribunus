@@ -8,22 +8,22 @@ namespace TribunusAPI.Models {
         public AtaReuniao() {
         }
 
-        private int _SEQ_ATA_REUNIAO;
-        public int SEQ_ATA_REUNIAO {
-            get { return _SEQ_ATA_REUNIAO; }
-            set { _SEQ_ATA_REUNIAO = value; }
+        private int _Id;
+        public int Id {
+            get { return _Id; }
+            set { _Id = value; }
         }
 
-        private int _SEQ_ATA;
-        public int SEQ_ATA {
-            get { return _SEQ_ATA; }
-            set { _SEQ_ATA = value; }
+        private int _IdAta;
+        public int IdAta {
+            get { return _IdAta; }
+            set { _IdAta = value; }
         }
 
-        private int _SEQ_REUNIAO;
-        public int SEQ_REUNIAO {
-            get { return _SEQ_REUNIAO; }
-            set { _SEQ_REUNIAO = value; }
+        private int _IdReuniao;
+        public int IdReuniao {
+            get { return _IdReuniao; }
+            set { _IdReuniao = value; }
         }
     }
 }

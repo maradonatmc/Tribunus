@@ -8,16 +8,16 @@ namespace TribunusAPI.Models {
         public Ata() {
         }
 
-        private int _SEQ_ATA;
-        public int SEQ_ATA {
-            get { return _SEQ_ATA; }
-            set { _SEQ_ATA = value; }
+        private int _Id;
+        public int Id {
+            get { return _Id; }
+            set { _Id = value; }
         }
 
-        private byte[] _ARQUIVO_ATA;
-        public byte[] ARQUIVO_ATA {
-            get { return _ARQUIVO_ATA; }
-            set { _ARQUIVO_ATA = value; }
+        private byte[] _ArquivoAta;
+        public byte[] ArquivoAta {
+            get { return _ArquivoAta; }
+            set { _ArquivoAta = value; }
         }
     }
 }

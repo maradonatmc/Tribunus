@@ -8,28 +8,28 @@ namespace TribunusAPI.Models {
         public Reuniao() {
         }
 
-        private int _SEQ_REUNIAO;
-        public int SEQ_REUNIAO {
-            get { return _SEQ_REUNIAO; }
-            set { _SEQ_REUNIAO = value; }
+        private int _Id;
+        public int Id {
+            get { return _Id; }
+            set { _Id = value; }
         }
 
-        private string _DSC_LOCAL_REUNIAO;
-        public string DSC_LOCAL_REUNIAO {
-            get { return _DSC_LOCAL_REUNIAO; }
-            set { _DSC_LOCAL_REUNIAO = value; }
+        private string _DscLocalReuniao;
+        public string DscLocalReuniao {
+            get { return _DscLocalReuniao; }
+            set { _DscLocalReuniao = value; }
         }
 
-        private string _DSC_ENDERECO_REUNIAO;
-        public string DSC_ENDERECO_REUNIAO {
-            get { return _DSC_ENDERECO_REUNIAO; }
-            set { _DSC_ENDERECO_REUNIAO = value; }
+        private string _DscEnderecoReuniao;
+        public string DscEnderecoReuniao {
+            get { return _DscEnderecoReuniao; }
+            set { _DscEnderecoReuniao = value; }
         }
 
-        private DateTime _DAT_REUNIAO;
-        public DateTime DAT_REUNIAO {
-            get { return _DAT_REUNIAO; }
-            set { _DAT_REUNIAO = value; }
+        private DateTime _DatReuniao;
+        public DateTime DatReuniao {
+            get { return _DatReuniao; }
+            set { _DatReuniao = value; }
         }
     }
 }
