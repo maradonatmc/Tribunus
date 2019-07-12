@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tribunus.iOS", "Tribunus\Tr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tribunus", "Tribunus\Tribunus\Tribunus.csproj", "{FAF67CDA-F8F5-4959-AAC5-4C030146CAD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TribunusAPI", "TribunusAPI\TribunusAPI.csproj", "{BE3EB1D4-4150-4EB1-8A05-FE941693BDB3}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,18 +73,6 @@ Global
 		{FAF67CDA-F8F5-4959-AAC5-4C030146CAD5}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{FAF67CDA-F8F5-4959-AAC5-4C030146CAD5}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{FAF67CDA-F8F5-4959-AAC5-4C030146CAD5}.Release|iPhoneSimulator.Deploy.0 = Release|Any CPU
-		{BE3EB1D4-4150-4EB1-8A05-FE941693BDB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BE3EB1D4-4150-4EB1-8A05-FE941693BDB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BE3EB1D4-4150-4EB1-8A05-FE941693BDB3}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{BE3EB1D4-4150-4EB1-8A05-FE941693BDB3}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{BE3EB1D4-4150-4EB1-8A05-FE941693BDB3}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{BE3EB1D4-4150-4EB1-8A05-FE941693BDB3}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{BE3EB1D4-4150-4EB1-8A05-FE941693BDB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BE3EB1D4-4150-4EB1-8A05-FE941693BDB3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BE3EB1D4-4150-4EB1-8A05-FE941693BDB3}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{BE3EB1D4-4150-4EB1-8A05-FE941693BDB3}.Release|iPhone.Build.0 = Release|Any CPU
-		{BE3EB1D4-4150-4EB1-8A05-FE941693BDB3}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{BE3EB1D4-4150-4EB1-8A05-FE941693BDB3}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TribunusAPI.Data;
 
 namespace TribunusAPI.Migrations
 {
     [DbContext(typeof(TribunusContext))]
-    partial class TribunusContextModelSnapshot : ModelSnapshot
+    [Migration("20190712154823_FK_Struct")]
+    partial class FK_Struct
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,6 +41,10 @@ namespace TribunusAPI.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int?>("AtaId");
+
+                    b.Property<int>("IdAta");
+
+                    b.Property<int>("IdReuniao");
 
                     b.Property<int?>("ReuniaoId");
 
@@ -77,6 +83,10 @@ namespace TribunusAPI.Migrations
                     b.Property<DateTime>("DatInicioFuncao");
 
                     b.Property<bool>("FlgAtivo");
+
+                    b.Property<int>("IdCargo");
+
+                    b.Property<int>("IdMembro");
 
                     b.Property<int?>("MembroId");
 
@@ -124,6 +134,8 @@ namespace TribunusAPI.Migrations
 
                     b.Property<int?>("GraduacaoId");
 
+                    b.Property<int>("IdGraduacao");
+
                     b.Property<string>("NomeMembro");
 
                     b.Property<string>("Password");
@@ -159,6 +171,10 @@ namespace TribunusAPI.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("IdMembro");
+
+                    b.Property<int>("IdMoto");
 
                     b.Property<int?>("MembroId");
 

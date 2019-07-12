@@ -14,16 +14,8 @@ namespace TribunusAPI.Models {
             set { _Id = value; }
         }
 
-        private int _IdAta;
-        public int IdAta {
-            get { return _IdAta; }
-            set { _IdAta = value; }
-        }
+        public Ata Ata { get; set; }
 
-        private int _IdReuniao;
-        public int IdReuniao {
-            get { return _IdReuniao; }
-            set { _IdReuniao = value; }
-        }
+        public Reuniao Reuniao { get; set; }
     }
 }

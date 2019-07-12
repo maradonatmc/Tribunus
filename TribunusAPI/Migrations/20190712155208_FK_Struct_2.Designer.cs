@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TribunusAPI.Data;
 
 namespace TribunusAPI.Migrations
 {
     [DbContext(typeof(TribunusContext))]
-    partial class TribunusContextModelSnapshot : ModelSnapshot
+    [Migration("20190712155208_FK_Struct_2")]
+    partial class FK_Struct_2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,6 +41,8 @@ namespace TribunusAPI.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int?>("AtaId");
+
+                    b.Property<int>("IdAta");
 
                     b.Property<int?>("ReuniaoId");
 

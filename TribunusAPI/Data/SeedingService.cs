@@ -13,21 +13,33 @@ namespace TribunusAPI.Data {
         }
 
         public void Seed() {
-            if (_context.Membro.Any() ||
-                _context.Graduacao.Any() ||
+            if (_context.Graduacao.Any() ||
+                _context.Membro.Any() ||
                 _context.Cargo.Any()) {
                 return;
             }
 
-            //Default Membro
-
-            _context.Membro.AddRange();
-
             //Default Graduacao
-            Graduacao g1 = new Graduacao("Escudado");
-            Graduacao g2 = new Graduacao("Meio Escudo");
-            Graduacao g3 = new Graduacao("Próspero");
-            _context.Graduacao.AddRange(g1, g2, g3);
+            Graduacao escudado = new Graduacao("Escudado");
+            Graduacao meioEscudo = new Graduacao("Meio Escudo");
+            Graduacao prospero = new Graduacao("Próspero");
+            _context.Graduacao.AddRange(escudado, meioEscudo, prospero);
+
+            //Default Membro
+            Membro maradona = new Membro {
+                NomeMembro = "Renato Ramos e Ramos",
+                DatNascimento = new DateTime(1989, 12, 20),
+                ApelidoMembro = "Maradona",
+                Password = "tribunus",
+                DatIngresso = new DateTime(2013, 06, 07),
+                Graduacao = escudado,
+                DscCnh = "AB",
+                FlgAdAeternum = true,
+                FlgAtivo = true,
+                DatUltAtualizacao = DateTime.Now
+            };
+
+            _context.Membro.AddRange(maradona);
 
             //Default Cargo
             Cargo c1 = new Cargo("Presidente");

@@ -1,4 +1,6 @@
-﻿namespace TribunusAPI.Models {
+﻿using System.Collections.Generic;
+
+namespace TribunusAPI.Models {
     public class Cargo {
         public Cargo() {
         }
@@ -18,5 +20,7 @@
             get { return _DscCargo; }
             set { _DscCargo = value; }
         }
+
+        public ICollection<Diretoria> Diretoria { get; set; } = new List<Diretoria>();
     }
 }

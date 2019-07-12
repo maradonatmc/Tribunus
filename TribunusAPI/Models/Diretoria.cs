@@ -12,17 +12,9 @@ namespace TribunusAPI.Models {
             set { _Id = value; }
         }
 
-        private int _IdMembro;
-        public int IdMembro {
-            get { return _IdMembro; }
-            set { _IdMembro = value; }
-        }
+        public Membro Membro { get; set; }
 
-        private int _IdCargo;
-        public int IdCargo {
-            get { return _IdCargo; }
-            set { _IdCargo = value; }
-        }
+        public Cargo Cargo { get; set; }
 
         private DateTime _DatInicioFuncao;
         public DateTime DatInicioFuncao {

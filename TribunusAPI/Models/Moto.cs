@@ -37,5 +37,7 @@ namespace TribunusAPI.Models {
             get { return _DscPlaca; }
             set { _DscPlaca = value; }
         }
+
+        public ICollection<MotoMembro> MotoMembros { get; set; } = new List<MotoMembro>();
     }
 }

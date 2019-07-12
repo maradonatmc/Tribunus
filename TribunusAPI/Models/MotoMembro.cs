@@ -14,16 +14,8 @@ namespace TribunusAPI.Models {
             set { _Id = value; }
         }
 
-        private int _IdMoto;
-        public int IdMoto {
-            get { return _IdMoto; }
-            set { _IdMoto = value; }
-        }
+        public Moto Moto { get; set; }
 
-        private int _IdMembro;
-        public int IdMembro {
-            get { return _IdMembro; }
-            set { _IdMembro = value; }
-        }
+        public Membro Membro { get; set; }
     }
 }

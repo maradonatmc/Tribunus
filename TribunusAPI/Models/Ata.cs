@@ -19,5 +19,7 @@ namespace TribunusAPI.Models {
             get { return _ArquivoAta; }
             set { _ArquivoAta = value; }
         }
+
+        public ICollection<AtaReuniao> AtaReuniao { get; set; } = new List<AtaReuniao>();
     }
 }

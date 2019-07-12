@@ -19,11 +19,6 @@ namespace TribunusAPI.Controllers {
             _context = context;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Membro>>> GetLogin() {
-            return await _context.Membro.ToListAsync();
-        }
-
         [HttpGet("ValidarMembro/{userName}/{password}")]
         public async Task<ActionResult<Membro>> ValidarMembro(string userName, string password) {
             try {

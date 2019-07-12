@@ -21,6 +21,6 @@ namespace TribunusAPI.Models {
             set { _DscGraduacao = value; }
         }
 
-        public ICollection<Membro> Membros { get; set; } = new List<Membro>();
+        public ICollection<Membro> Membro { get; set; } = new List<Membro>();
     }
 }

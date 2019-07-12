@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace TribunusAPI.Models {
@@ -7,11 +8,12 @@ namespace TribunusAPI.Models {
         public Membro() {
         }
 
-        public Membro(string pNomeMembro, DateTime pDatNasc, string pApelidoMembro, DateTime pDatIngresso, Graduacao pGraduacao, 
-            string pCnh, bool pAdAeternum, bool pAtivo, DateTime pDatUltAtualizacao) {
+        public Membro(string pNomeMembro, DateTime pDatNasc, string pApelidoMembro, string pPassword, DateTime pDatIngresso, 
+            Graduacao pGraduacao, string pCnh, bool pAdAeternum, bool pAtivo, DateTime pDatUltAtualizacao) {
             NomeMembro = pNomeMembro;
             DatNascimento = pDatNasc;
             ApelidoMembro = pApelidoMembro;
+            Password = pPassword;
             DatIngresso = pDatIngresso;
             Graduacao = pGraduacao;
             DscCnh = pCnh;
@@ -44,6 +46,13 @@ namespace TribunusAPI.Models {
             set { _ApelidoMembro = value; }
         }
 
+        private string _Password;
+        public string Password {
+            get { return _Password; }
+            set { _Password = value; }
+        }
+
+
         private DateTime _DatIngresso;
         public DateTime DatIngresso {
             get { return _DatIngresso; }
@@ -51,12 +60,6 @@ namespace TribunusAPI.Models {
         }
 
         public Graduacao Graduacao { get; set; }
-
-        private int _IdGraduacao;
-        public int IdGraduacao {
-            get { return _IdGraduacao; }
-            set { _IdGraduacao = value; }
-        }
 
         private string _DscCnh;
         public string DscCnh {
@@ -81,5 +84,8 @@ namespace TribunusAPI.Models {
             get { return _DatUltAtualizacao; }
             set { _DatUltAtualizacao = value; }
         }
+
+        public ICollection<MotoMembro> MotoMembros { get; set; } = new List<MotoMembro>();
+        public ICollection<Diretoria> Diretoria { get; set; } = new List<Diretoria>();
     }
 }
