@@ -112,10 +112,10 @@ namespace Tribunus.Views {
                 client.BaseAddress = new Uri("http://128.0.0.36");
 
                 if (useFingerprintSwitch.IsToggled) {
-                    url = "/TribunusAPI/WebAPI/Tribunus/ValidarMembro/" + aliasEntry.Text + "/0";
+                    url = "/TribunusAPI/API/Tribunus/ValidarMembro/" + aliasEntry.Text + "/tribunus";
                 }
                 else {
-                    url = "/TribunusAPI/WebAPI/Tribunus/ValidarMembro/" + aliasEntry.Text + "/" + passwordEntry.Text;
+                    url = "/TribunusAPI/API/Tribunus/ValidarMembro/" + aliasEntry.Text + "/" + passwordEntry.Text;
                 }
                 
                 var result = await client.GetAsync(url);
