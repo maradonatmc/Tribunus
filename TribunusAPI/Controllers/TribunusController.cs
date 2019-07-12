@@ -9,7 +9,7 @@ using TribunusAPI.Models;
 using TribunusAPI.Services;
 
 namespace TribunusAPI.Controllers {
-    [Route("WebAPI/[controller]")]
+    [Route("API/[controller]")]
     [ApiController]
     public class TribunusController: ControllerBase {
         private readonly TribunusContext _context;
@@ -28,20 +28,15 @@ namespace TribunusAPI.Controllers {
         public async Task<ActionResult<Membro>> ValidarMembro(string userName, string password) {
             try {
                 membroService = new MembroService(_context);
-                List<Membro> membro = membroService.BuscarMembro(userName);
-                Membro membroValido = new Membro();
+                Membro membro = await membroService.BuscarMembro(userName);
 
                 if (membro == null) {
                     return NotFound();
                 }
 
-                foreach (Membro m in membro) {
-                    membroValido = await _context.Membro.FindAsync(m.Id);
-                }
-
-                return membroValido;
+                return membro;
             }
-            catch (Exception ex) {
+            catch (Exception) {
                 return NotFound();
             }
         }
