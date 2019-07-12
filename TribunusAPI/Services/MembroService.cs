@@ -14,23 +14,22 @@ namespace TribunusAPI.Services {
         }
 
         public async Task<Membro> BuscarMembro(string pApelido) {
+            Membro membroValido = new Membro();
+
             try {
-                Membro membroValido = new Membro();
                 var lstMembros = _context.Membro.Where(c => c.ApelidoMembro == pApelido).ToList();
 
-                if (lstMembros.Count == 0) {
-                    return null;
-                }
-
-                foreach (Membro membro in lstMembros) {
-                    membroValido = await _context.Membro.FindAsync(membro.Id);
+                if (lstMembros.Count > 0) {
+                    foreach (Membro membro in lstMembros) {
+                        membroValido = await _context.Membro.FindAsync(membro.Id);
+                    }
                 }
 
                 return membroValido;
             }
             catch (Exception) {
-                return null;
-            }
+                return membroValido;
+            }            
         }
 
         public async Task<List<Membro>> FindAllAsync() {
