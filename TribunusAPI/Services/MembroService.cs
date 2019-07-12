@@ -18,7 +18,7 @@ namespace TribunusAPI.Services {
                 Membro membroValido = new Membro();
                 var lstMembros = _context.Membro.Where(c => c.ApelidoMembro == pApelido).ToList();
 
-                if (lstMembros == null) {
+                if (lstMembros.Count == 0) {
                     return null;
                 }
 
