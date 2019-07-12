@@ -28,7 +28,7 @@ namespace TribunusAPI.Services {
                 return membroValido;
             }
             catch (Exception) {
-                return membroValido;
+                return null;
             }            
         }
 
