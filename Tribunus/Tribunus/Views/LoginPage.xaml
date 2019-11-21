@@ -3,94 +3,96 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
              mc:Ignorable="d"
              x:Class="Tribunus.Views.LoginPage"
              Title="Tribunus MC">
-    <ScrollView>
-        <StackLayout Spacing="20">
-            <Label Text="Bem vindo, Tribunus"
-                    FontSize="30"
+    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Image Source="background_login" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Aspect="AspectFill"/>
+        <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+            <StackLayout Spacing="20">
+                
+                <Material:MaterialLabel
+                    x:Name="lblAliasNotify"
+                    Text="Digite seu apelido e sua senha para acesso"
                     VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center"
+                    TextColor="White"
+                    BackgroundColor="Transparent" />
+
+                <Material:MaterialTextField 
+                    x:Name="aliasEntry"
+                    Placeholder="Apelido"
+                    VerticalOptions="Center"
+                    InputType="Text"
+                    TextColor="White"
+                    PlaceholderColor="White"
+                    Icon="user_login"
+                    IconTintColor="White"
+                    TintColor="White"
+                    BackgroundColor="Transparent" />
+                
+                <Material:MaterialTextField 
+                    x:Name="passwordEntry"
+                    Placeholder="Senha"
+                    VerticalOptions="Center"
+                    InputType="Password"
+                    TextColor="White"
+                    PlaceholderColor="White"
+                    Icon="password_login"
+                    ErrorColor="White"
+                    IconTintColor="White"
+                    TintColor="White"
+                    BackgroundColor="Transparent" />
+
+                <Material:MaterialLabel 
+                    x:Name="lblAuthenticationType"                  
+                    VerticalOptions="Center"
                     HorizontalOptions="Center"
-                    FontAttributes="Bold" >
-            </Label>
-          
-            <Label Text="Digite seu apelido e sua senha para acesso"
-                   x:Name="lblAliasNotify"
-                    VerticalTextAlignment="Center"
-                    HorizontalTextAlignment="Center" >
-            </Label>
+                    TextColor="White"
+                    BackgroundColor="Transparent" />
 
-            <Entry x:Name="aliasEntry"
-                    Placeholder="Entre com o apelido"
-                    Keyboard="Text" 
-                    VerticalOptions="Center"
-                    HorizontalOptions="FillAndExpand" >
-            </Entry>
-
-            <Entry x:Name="passwordEntry"
-                    Placeholder="Entre com a sua senha"
-                    IsPassword="true"
-                    VerticalOptions="Center"
-                    HorizontalOptions="FillAndExpand" >
-            </Entry>
-
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Lembrar-me"
-                        HorizontalOptions="Start" 
-                        VerticalOptions="Center">
-                </Label>
-                <Switch x:Name="lembrarmeSwitch" 
-                        HorizontalOptions="End"
-                        VerticalOptions="Center">
-                </Switch>
-            </StackLayout>
-
-            <Label x:Name="lblAuthenticationType" 
-               VerticalOptions="Center"
-               HorizontalOptions="Center">
-            </Label>
-
-            <StackLayout Orientation="Horizontal">
-                <Switch x:Name="swAutoCancel" 
+                <StackLayout Orientation="Horizontal">
+                    <Switch 
+                        x:Name="swAutoCancel" 
                         IsToggled="True" 
                         IsVisible="False"
                         HorizontalOptions="End"
-                        VerticalOptions="Center">
-                </Switch>
-            </StackLayout>
+                        VerticalOptions="Center"
+                        BackgroundColor="Transparent" />
+                </StackLayout>
 
-            <ActivityIndicator x:Name="waitActivityIndicator"
-                                HorizontalOptions="CenterAndExpand"
-                                VerticalOptions="CenterAndExpand" >
-            </ActivityIndicator>
+                <ActivityIndicator 
+                    x:Name="waitActivityIndicator"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    BackgroundColor="Transparent" />
 
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Impressão Digital"
+                <StackLayout Orientation="Horizontal">
+                    <Material:MaterialLabel 
+                        Text="Impressão Digital"
                         HorizontalOptions="Start" 
-                        VerticalOptions="Center">
-                </Label>
-                <Switch x:Name="useFingerprintSwitch" 
-                        HorizontalOptions="End"
-                        VerticalOptions="Center">
-                </Switch>
-            </StackLayout>
+                        VerticalOptions="Center"
+                        TextColor="White"
+                        BackgroundColor="Transparent" />
 
-            <Button x:Name="loginButton"                    
-                    BackgroundColor="Green"
+                    <Switch 
+                        x:Name="useFingerprintSwitch" 
+                        HorizontalOptions="End"
+                        VerticalOptions="Center"
+                        BackgroundColor="Transparent"
+                        OnColor="White"/>
+                </StackLayout>
+
+                <Material:MaterialButton 
+                    x:Name="loginButton"                    
+                    BackgroundColor="Transparent"
                     Text="Entrar"
                     TextColor="White"
                     HorizontalOptions="FillAndExpand"
-                    VerticalOptions="Center">
-            </Button>
+                    VerticalOptions="Center" />
 
-            <Button x:Name="registerButton"
-                    BackgroundColor="DarkBlue"
-                    Text="Cadastrar"
-                    TextColor="White"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="Center">
-            </Button>
-        </StackLayout>
-    </ScrollView>
+            </StackLayout>
+        </ScrollView>
+    </AbsoluteLayout>
 </ContentPage>

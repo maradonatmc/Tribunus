@@ -2,6 +2,7 @@
 using System;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using Tribunus.ApiRequest;
 using Tribunus.Models;
 using Tribunus.Services;
@@ -35,7 +36,6 @@ namespace Tribunus.Views {
             }
 
             loginButton.Clicked += LoginButton_Clicked;
-            registerButton.Clicked += RegisterButton_Clicked;
             useFingerprintSwitch.Toggled += HandleSwitchToggledByUser;
         }
 
@@ -94,46 +94,40 @@ namespace Tribunus.Views {
             }
         }
 
-        private async void RegisterButton_Clicked(object sender, EventArgs e) {
-            waitActivityIndicator.IsRunning = true;
-
-            waitActivityIndicator.IsRunning = false;
-
-            await Navigation.PushAsync(new CadastroMembrosPage());
-        }
-
         private async void LogarAsync() {
             waitActivityIndicator.IsRunning = true;
-            var resp = string.Empty;
-            var url = string.Empty;
+            //var resp = string.Empty;
+            //var url = string.Empty;
 
-            try {
-                var client = new HttpClient();
-                client.BaseAddress = new Uri("http://128.0.0.36");
+            //try {
+            //    var client = new HttpClient();
+            //    client.BaseAddress = new Uri("http://128.0.0.36");
 
-                if (useFingerprintSwitch.IsToggled) {
-                    url = "/TribunusAPI/API/Tribunus/ValidarMembro/" + aliasEntry.Text + "/tribunus";
-                }
-                else {
-                    url = "/TribunusAPI/API/Tribunus/ValidarMembro/" + aliasEntry.Text + "/" + passwordEntry.Text;
-                }
-                
-                var result = await client.GetAsync(url);
+            //    if (useFingerprintSwitch.IsToggled) {
+            //        url = "/TribunusAPI/API/Tribunus/ValidarMembro/" + aliasEntry.Text + "/tribunus";
+            //    }
+            //    else {
+            //        url = "/TribunusAPI/API/Tribunus/ValidarMembro/" + aliasEntry.Text + "/" + passwordEntry.Text;
+            //    }
 
-                if (!result.IsSuccessStatusCode) {
-                    await DisplayAlert("Erro", "Membro ou Senha incorretos", "Ok");
-                    waitActivityIndicator.IsRunning = false;
-                    return;
-                }
+            //    var result = await client.GetAsync(url);
 
-                resp = await result.Content.ReadAsStringAsync();
-                var membro = JsonConvert.DeserializeObject<Membro>(resp);
-            }
-            catch (Exception ex) {
-                await DisplayAlert("Erro", ex.Message, "Ok");
-                waitActivityIndicator.IsRunning = false;
-                return;
-            }
+            //    if (!result.IsSuccessStatusCode) {
+            //        await DisplayAlert("Erro", "Membro ou Senha incorretos", "Ok");
+            //        waitActivityIndicator.IsRunning = false;
+            //        return;
+            //    }
+
+            //    resp = await result.Content.ReadAsStringAsync();
+            //    var membro = JsonConvert.DeserializeObject<Membro>(resp);
+            //}
+            //catch (Exception ex) {
+            //    await DisplayAlert("Erro", ex.Message, "Ok");
+            //    waitActivityIndicator.IsRunning = false;
+            //    return;
+            //}
+
+            Thread.Sleep(1000);
 
             waitActivityIndicator.IsRunning = false;
 
