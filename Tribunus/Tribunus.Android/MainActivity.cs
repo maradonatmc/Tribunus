@@ -9,6 +9,7 @@ using Android.OS;
 using Tribunus.Droid;
 using Plugin.Fingerprint;
 using Plugin.CurrentActivity;
+using Lottie.Forms.Droid;
 
 namespace Tribunus.Droid
 {

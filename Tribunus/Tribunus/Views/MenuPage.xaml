@@ -7,10 +7,13 @@
              x:Class="Tribunus.Views.MenuPage" 
              NavigationPage.HasBackButton="False" >
     <MasterDetailPage.Master>
-        <ContentPage Title="Menu" Padding="0">
+        <ContentPage 
+            Title="Menu" 
+            BackgroundColor="Black"
+            Padding="0">
             <ContentPage.Content>
                 <StackLayout>
-                    <Grid BackgroundColor="#03A9F4">
+                    <Grid BackgroundColor="Black">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="10"/>
                             <ColumnDefinition Width="*"/>
@@ -26,38 +29,62 @@
                           Grid.Column="1"
                           Grid.Row="2"
                           Text="Tribunus"
-                          TextColor="White" FontSize="Large"/>
+                          BackgroundColor="Black"
+                          TextColor="White" 
+                          FontSize="Large"/>
                     </Grid>
 
-                    <TableView Intent="Menu">
+                    <TableView 
+                        Intent="Menu"
+                        BackgroundColor="Black" >
                         <TableSection>
                             <ViewCell Tapped="GoCadastro">
                                 <StackLayout Padding="15,10">
-                                    <Label Text="Cadastro" VerticalTextAlignment="Center"/>
+                                    <Label 
+                                        Text="Cadastro" 
+                                        TextColor="White"
+                                        BackgroundColor="Black"
+                                        VerticalTextAlignment="Center"/>
                                 </StackLayout>
                             </ViewCell>
 
                             <ViewCell Tapped="GoReunioes">
                                 <StackLayout Padding="15,10">
-                                    <Label Text="Reuniões" VerticalTextAlignment="Center"/>
+                                    <Label 
+                                        Text="Reuniões" 
+                                        TextColor="White"
+                                        BackgroundColor="Black"
+                                        VerticalTextAlignment="Center"/>
                                 </StackLayout>
                             </ViewCell>
 
                             <ViewCell Tapped="GoMural">
                                 <StackLayout Padding="15,10">
-                                    <Label Text="Mural" VerticalTextAlignment="Center"/>
+                                    <Label 
+                                        Text="Mural" 
+                                        TextColor="White"
+                                        BackgroundColor="Black"
+                                        VerticalTextAlignment="Center"/>
                                 </StackLayout>
                             </ViewCell>
 
                             <ViewCell Tapped="GoMembros">
                                 <StackLayout Padding="15,10">
-                                    <Label Text="Membros" VerticalTextAlignment="Center"/>
+                                    <Label 
+                                        Text="Membros" 
+                                        TextColor="White"
+                                        BackgroundColor="Black"
+                                        VerticalTextAlignment="Center"/>
                                 </StackLayout>
                             </ViewCell>
 
                             <ViewCell Tapped="GoFinanceiro">
                                 <StackLayout Padding="15,10">
-                                    <Label Text="Financeiro" VerticalTextAlignment="Center"/>
+                                    <Label 
+                                        Text="Financeiro" 
+                                        TextColor="White"
+                                        BackgroundColor="Black"
+                                        VerticalTextAlignment="Center"/>
                                 </StackLayout>
                             </ViewCell>
                         </TableSection>
